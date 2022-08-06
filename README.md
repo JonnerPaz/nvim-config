@@ -15,3 +15,7 @@ Para que los plugins funcionen se necesita:
 * Insertar los plugins dentro de la carpeta "plugged"
 
 Con esto, debería funcionar el archivo de configuración.
+
+## Ubicación
+
+Los archivos del directorio de neovim van en <code>~/.config/nvim/</code>. Se deben mover los archivos dentro de esta carpeta hacia nvim.
