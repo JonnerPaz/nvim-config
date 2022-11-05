@@ -1,53 +1,22 @@
-set background=light
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath=&runtimepath
+source ~/.config/nvim/autoload/vimconfig.vimrc 
+source ~/.config/nvim/autoload/mappings.vim
 
-syntax on
-set background=dark
-set number
-set mouse=a
-set numberwidth=1
-set encoding=utf-8
-set showmatch
-set showcmd
-set ruler
-set relativenumber
-set laststatus=2
-filetype plugin indent on
-
-" show existing tab with 4 spaces width
-set tabstop=4
-
-" when indenting with '>', use 4 spaces width 
-set shiftwidth=4
-
-" On pressing tab, insert 4 spaces
-set expandtab
-
-
-" Plugins
 call plug#begin('~/.config/nvim/plugged')
-
-" Autocompletion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Tree
-Plug 'preservim/nerdtree'
-
-" Status bar
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
 " themes
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'dracula/vim',{'as':'dracula'}
 
-" syntax 
-Plug 'sheerun/vim-polyglot'
-
 " IDE
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzzy search
+Plug 'easymotion/vim-easymotion' " search typing
+Plug 'vim-airline/vim-airline' " status line (bottom line)
+Plug 'vim-airline/vim-airline-themes' " status line themes
+Plug 'preservim/nerdtree' " tree
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " autocomplete
+Plug 'mattn/emmet-vim' " Emmet for neovim
+Plug 'Yggdroot/indentLine' " See indent lines
 call plug#end()
 
 " Airline theme
@@ -62,4 +31,5 @@ let g:tokyonight_colors = {
   \ 'error': '#ff0000'
 \ }
 
+let g:indentLine_setColors = 0 " Makes indent line highlighting match with colorscheme
 colorscheme tokyonight
