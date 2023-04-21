@@ -1,5 +1,4 @@
 -- Keybindings file
---
 -- Leader button
 vim.g.mapleader = " "
 
@@ -10,7 +9,7 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
 -- LSP mappings
--- On "./../../after/plugin/lsp.lua"
+-- "./../../after/plugin/lsp.lua"
 
-
-
+-- Comments mappings
+-- snippets mappings TO CONFIGURE

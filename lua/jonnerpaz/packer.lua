@@ -1,4 +1,4 @@
--- This file can be loaded by calling  from your init.vim
+-- This file can be loaded by calling from your init.vim
 
 -- Only required if you have packer configured as `opt` 
 vim.cmd [[packadd packer.nvim]]
@@ -14,10 +14,21 @@ return require('packer').startup(function(use)
   }
   -- Color Scheme
   use { "catppuccin/nvim", as = "catppuccin" }
+  -- Comments
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+}
+  -- formatter
+  require('packer').use { 'mhartington/formatter.nvim' }
   -- Treesitter
   use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   -- Treesitter playground
   use ('nvim-treesitter/playground')
+  -- Autotag
+  use "windwp/nvim-ts-autotag"
   -- Harpoon
   use ('ThePrimeagen/harpoon')
   --undotree
