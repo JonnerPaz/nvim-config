@@ -1,4 +1,4 @@
 require("jonnerpaz.remap")
-require("jonnerpaz.packer")
+require("jonnerpaz.lazy")
 require("jonnerpaz.set")
 
