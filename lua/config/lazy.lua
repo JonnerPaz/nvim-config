@@ -31,7 +31,7 @@ return require('lazy').setup({
     end
   },
   -- formatter
-  -- require('packer').{ 'mhartington/formatter.nvim' },
+  'mhartington/formatter.nvim',
   -- Treesitter
   {'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate'},
