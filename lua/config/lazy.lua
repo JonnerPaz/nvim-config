@@ -23,22 +23,45 @@ return require('lazy').setup({
   },
   -- Color Scheme
   { "catppuccin/nvim", name = "catppuccin" },
+  -- line
+  {
+  'nvim-lualine/lualine.nvim',
+  dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
+  },
   -- Comments
+  {
     'numToStr/Comment.nvim',
+    lazy = true
+  },
   -- formatter
+  -- tree
+  'nvim-tree/nvim-tree.lua',
+  -- scrollbar
+  {
+    "petertriho/nvim-scrollbar",
+},
   -- Treesitter
   {'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate'},
   -- Treesitter playground
   'nvim-treesitter/playground',
   -- shows colors of code colors
-  'NvChad/nvim-colorizer.lua',
+  {
+    'NvChad/nvim-colorizer.lua',
+    lazy = true
+  },
   -- shows words references
   'RRethy/vim-illuminate',
   -- Autotag
-  'windwp/nvim-ts-autotag',
+  {
+    'windwp/nvim-ts-autotag',
+    lazy = true
+  },
   -- Harpoon
-  'ThePrimeagen/harpoon',
+  {
+    'ThePrimeagen/harpoon',
+    lazy = true
+  },
   --undotree
   'mbbill/undotree',
   --vim-fugitive

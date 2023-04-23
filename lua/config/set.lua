@@ -1,44 +1,45 @@
+local vim = vim.opt
 -- Makes cursor big when typing
-vim.opt.guicursor = ""
+vim.guicursor = ""
 
 -- Numbers and relative numbers
-vim.opt.nu = true
-vim.opt.relativenumber = true
+vim.nu = true
+vim.relativenumber = true
 
 -- Indentation
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.opt.smartindent = true
+vim.tabstop = 2
+vim.softtabstop = 2
+vim.shiftwidth = 2
+vim.expandtab = true
+vim.smartindent = true
 
 -- Lines won't wrap when splitting windows
-vim.opt.wrap = false
+vim.wrap = false
 
 -- Get rid of swap file and backups
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+vim.swapfile = false
+vim.backup = false
+vim.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.undofile = true
 
 -- Search text options
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
+vim.hlsearch = true
+vim.incsearch = true
 
-vim.opt.termguicolors = true
+vim.termguicolors = true
 
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
+vim.scrolloff = 8
+vim.signcolumn = "yes"
+vim.isfname:append("@-@")
 
-vim.opt.updatetime = 50
+vim.updatetime = 50
 -- Ignore case in search patterns
--- vim.opt.ic = true
--- vim.opt.smartcase = true
+-- vim.ic = true
+-- vim.smartcase = true
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.completeopt = 'menuone,noselect'
 
 -- Makes the line at the middle appear
-vim.opt.colorcolumn = "80"
+vim.colorcolumn = "80"
 
