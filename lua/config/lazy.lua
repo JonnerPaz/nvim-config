@@ -33,6 +33,8 @@ return require('lazy').setup({
   'nvim-treesitter/playground',
   -- shows colors of code colors
   'NvChad/nvim-colorizer.lua',
+  -- shows words references
+  'RRethy/vim-illuminate',
   -- Autotag
   'windwp/nvim-ts-autotag',
   -- Harpoon
