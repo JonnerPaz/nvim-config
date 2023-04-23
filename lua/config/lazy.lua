@@ -24,12 +24,7 @@ return require('lazy').setup({
   -- Color Scheme
   { "catppuccin/nvim", name = "catppuccin" },
   -- Comments
-  {
     'numToStr/Comment.nvim',
-    as = function()
-      require('Comment').init()
-    end
-  },
   -- formatter
   -- Treesitter
   {'nvim-treesitter/nvim-treesitter',
