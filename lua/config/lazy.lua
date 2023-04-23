@@ -31,12 +31,13 @@ return require('lazy').setup({
     end
   },
   -- formatter
-  'mhartington/formatter.nvim',
   -- Treesitter
   {'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate'},
   -- Treesitter playground
   'nvim-treesitter/playground',
+  -- shows colors of code colors
+  'NvChad/nvim-colorizer.lua',
   -- Autotag
   'windwp/nvim-ts-autotag',
   -- Harpoon
