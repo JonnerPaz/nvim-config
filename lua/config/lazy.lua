@@ -1,106 +1,107 @@
 -- This file can be loaded by calling from your init.vim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 
-return require('lazy').setup({
-  -- Look and feel
-  -- Color Scheme
-  { "catppuccin/nvim", name = "catppuccin" },
-  {
-  'nvim-lualine/lualine.nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
-  },
-  {
-    'NvChad/nvim-colorizer.lua',
-    lazy = true
-  },
-  -- Treesitter
-  {'nvim-treesitter/nvim-treesitter',
-  build = ':TSUpdate'},
-  -- scrollbar
-  {
-    "petertriho/nvim-scrollbar",
-  },
+return require("lazy").setup({
+	-- Look and feel
+	-- Color Scheme
+	{ "catppuccin/nvim", name = "catppuccin" },
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
+	},
+	{
+		"NvChad/nvim-colorizer.lua",
+		lazy = true,
+	},
+	-- Treesitter
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+	-- scrollbar
+	{
+		"petertriho/nvim-scrollbar",
+	},
 
+	-- Search and navigation
+	-- telescope to search from and for files
+	{
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.1",
+		-- or                            , branch = '0.1.x',
+		dependencies = { { "nvim-lua/plenary.nvim" } },
+	},
+	-- Harpoon
+	{
+		"ThePrimeagen/harpoon",
+		lazy = true,
+	},
+	-- shows words references
+	"RRethy/vim-illuminate",
 
+	-- Editing
+	{
+		-- scrollbar
+		{
+			"petertriho/nvim-scrollbar",
+		},
+		"numToStr/Comment.nvim",
+		lazy = true,
+	},
+	-- tree
+	"nvim-tree/nvim-tree.lua",
+	{
+		"windwp/nvim-ts-autotag",
+		lazy = true,
+	},
+	"mbbill/undotree",
 
-  -- Search and navigation
-  -- telescope to search from and for files
-  {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
-    -- or                            , branch = '0.1.x',
-    dependencies = { {'nvim-lua/plenary.nvim'} }
-  },
-  -- Harpoon
-  {
-    'ThePrimeagen/harpoon',
-    lazy = true
-  },
-  -- shows words references
-  'RRethy/vim-illuminate',
+	-- Git integration
+	"tpope/vim-fugitive",
 
-
-
-  -- Editing
-  {
-  -- scrollbar
-  {
-    "petertriho/nvim-scrollbar",
-  },
-    'numToStr/Comment.nvim',
-    lazy = true
-  },
-  -- formatter
-  -- tree
-  'nvim-tree/nvim-tree.lua',
-  {
-    'windwp/nvim-ts-autotag',
-    lazy = true
-  },
-  'mbbill/undotree',
-
-
-
-  -- Git integration 
-  'tpope/vim-fugitive',
-
-
-
-  -- LSP
-  -- LSP zero STARTS HERE
-  {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
-    dependencies = {
-      -- LSP Support
-      {'neovim/nvim-lspconfig'},             -- Required
-      {                                      -- Optional
-      'williamboman/mason.nvim',
-      build = function()
-        pcall(vim.cmd, 'MasonUpdate')
-      end,
-    },
-    {'williamboman/mason-lspconfig.nvim'}, -- Optional
-
-    -- Autocompletion
-    {'hrsh7th/nvim-cmp'},     -- Required
-    {'hrsh7th/cmp-nvim-lsp'}, -- Required
-    {'L3MON4D3/LuaSnip'},     -- Required
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-
-  }
-},
+	-- LSP
+	-- LSP zero STARTS HERE
+	{
+		"VonHeikemen/lsp-zero.nvim",
+		branch = "v2.x",
+		dependencies = {
+			-- LSP Support
+			{ "neovim/nvim-lspconfig" }, -- Required
+			{
+				"jay-babu/mason-null-ls.nvim",
+				event = { "BufReadPre", "BufNewFile" },
+				dependencies = {
+					{
+						-- Optional
+						"williamboman/mason.nvim",
+						build = function()
+							pcall(vim.cmd, "MasonUpdate")
+						end,
+					},
+					-- formatter
+					"jose-elias-alvarez/null-ls.nvim",
+				},
+				config = function()
+					require("plugin.lsp") -- require your null-ls config here (example below)
+				end,
+			},
+			{ "williamboman/mason-lspconfig.nvim" }, -- Optional
+			-- Autocompletion
+			{ "hrsh7th/nvim-cmp" }, -- Required
+			{ "hrsh7th/cmp-nvim-lsp" }, -- Required
+			{ "L3MON4D3/LuaSnip" }, -- Required
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+		},
+	},
 })
