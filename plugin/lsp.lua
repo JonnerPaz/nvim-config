@@ -3,7 +3,6 @@ local lspconfig = require("lspconfig")
 local configs = require("lspconfig/configs")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-local mason_null_integration = require("mason-null-ls")
 
 lsp.preset({
 	name = "recommended",
@@ -100,26 +99,6 @@ lspconfig.emmet_ls.setup({
 })
 
 lsp.setup()
-
--- Null-ls Config
-local null_ls = require("null-ls")
-local diagnostics = null_ls.builtins.diagnostics
-local formatting = null_ls.builtins.formatting
-
-null_ls.setup({
-	sources = {
-		-- formatting.stylua,
-		-- diagnostics.eslint,
-		-- formatting.prettier,
-	},
-})
-
--- Mason-null-ls config
-mason_null_integration.setup({
-	ensure_installed = nil,
-	automatic_installation = true,
-	handlers = {},
-})
 
 vim.diagnostic.config({
 	virtual_text = true,
