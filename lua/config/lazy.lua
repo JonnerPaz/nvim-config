@@ -55,6 +55,10 @@ return require('lazy').setup({
 
   -- Editing
   {
+  -- scrollbar
+  {
+    "petertriho/nvim-scrollbar",
+  },
     'numToStr/Comment.nvim',
     lazy = true
   },
@@ -94,6 +98,9 @@ return require('lazy').setup({
     {'hrsh7th/nvim-cmp'},     -- Required
     {'hrsh7th/cmp-nvim-lsp'}, -- Required
     {'L3MON4D3/LuaSnip'},     -- Required
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+
   }
 },
 })
