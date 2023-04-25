@@ -29,6 +29,7 @@ return require('lazy').setup({
   -- Treesitter
   {'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate'},
+<<<<<<< HEAD
   -- scrollbar
   {
     "petertriho/nvim-scrollbar",
