@@ -15,20 +15,45 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = ' '
 
 return require('lazy').setup({
+  -- Look and feel
+  -- Color Scheme
+  { "catppuccin/nvim", name = "catppuccin" },
+  {
+  'nvim-lualine/lualine.nvim',
+  dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
+  },
+  {
+    'NvChad/nvim-colorizer.lua',
+    lazy = true
+  },
+  -- Treesitter
+  {'nvim-treesitter/nvim-treesitter',
+  build = ':TSUpdate'},
+  -- scrollbar
+  {
+    "petertriho/nvim-scrollbar",
+  },
+
+
+
+  -- Search and navigation
   -- telescope to search from and for files
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
     -- or                            , branch = '0.1.x',
     dependencies = { {'nvim-lua/plenary.nvim'} }
   },
-  -- Color Scheme
-  { "catppuccin/nvim", name = "catppuccin" },
-  -- line
+  -- Harpoon
   {
-  'nvim-lualine/lualine.nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
+    'ThePrimeagen/harpoon',
+    lazy = true
   },
-  -- Comments
+  -- shows words references
+  'RRethy/vim-illuminate',
+
+
+
+  -- Editing
   {
     'numToStr/Comment.nvim',
     lazy = true
@@ -36,36 +61,20 @@ return require('lazy').setup({
   -- formatter
   -- tree
   'nvim-tree/nvim-tree.lua',
-  -- scrollbar
-  {
-    "petertriho/nvim-scrollbar",
-},
-  -- Treesitter
-  {'nvim-treesitter/nvim-treesitter',
-  build = ':TSUpdate'},
-  -- Treesitter playground
-  'nvim-treesitter/playground',
-  -- shows colors of code colors
-  {
-    'NvChad/nvim-colorizer.lua',
-    lazy = true
-  },
-  -- shows words references
-  'RRethy/vim-illuminate',
-  -- Autotag
   {
     'windwp/nvim-ts-autotag',
     lazy = true
   },
-  -- Harpoon
-  {
-    'ThePrimeagen/harpoon',
-    lazy = true
-  },
-  --undotree
   'mbbill/undotree',
-  --vim-fugitive
+
+
+
+  -- Git integration 
   'tpope/vim-fugitive',
+
+
+
+  -- LSP
   -- LSP zero STARTS HERE
   {
     'VonHeikemen/lsp-zero.nvim',
