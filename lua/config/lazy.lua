@@ -32,6 +32,10 @@ return require("lazy").setup({
   {
     "petertriho/nvim-scrollbar",
   },
+  'onsails/lspkind.nvim', -- Add icons to lsp completion
+
+
+
 
   -- Search and navigation
   -- telescope to search from and for files
@@ -65,6 +69,11 @@ return require("lazy").setup({
     lazy = true,
   },
   "mbbill/undotree",
+  "tpope/vim-surround",
+
+
+
+
 
   -- Git integration
   "tpope/vim-fugitive",
@@ -76,20 +85,20 @@ return require("lazy").setup({
     branch = "v2.x",
     dependencies = {
       -- LSP Support
-      { "neovim/nvim-lspconfig" }, -- Required
+      { "neovim/nvim-lspconfig" },             -- Required
       "williamboman/mason.nvim",
       { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
       -- Autocompletion
-      { "hrsh7th/nvim-cmp" },               -- Required
-      { "hrsh7th/cmp-nvim-lsp" },           -- Required
-      {'hrsh7th/cmp-nvim-lua'},
+      { "hrsh7th/nvim-cmp" },     -- Required
+      { "hrsh7th/cmp-nvim-lsp" }, -- Required
+      { 'hrsh7th/cmp-nvim-lua' },
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
 
       --Snippets
-      { "L3MON4D3/LuaSnip" },               -- Required
-      {'rafamadriz/friendly-snippets'},
+      { "L3MON4D3/LuaSnip" }, -- Required
+      { 'rafamadriz/friendly-snippets' },
     },
   },
 })
