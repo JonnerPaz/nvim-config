@@ -16,61 +16,54 @@ vim.g.mapleader = " "
 
 return require("lazy").setup({
   -- Look and feel
-  -- Color Scheme
-  { "catppuccin/nvim",                 name = "catppuccin" },
+  { "catppuccin/nvim",                 name = "catppuccin" }, -- Color Scheme
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
   },
   {
-    "NvChad/nvim-colorizer.lua",
+    "NvChad/nvim-colorizer.lua", -- Add colors to words, blue
     lazy = true,
   },
-  -- Treesitter
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-  -- scrollbar
   {
-    "petertriho/nvim-scrollbar",
+    "petertriho/nvim-scrollbar", -- scrollbar
   },
-  'onsails/lspkind.nvim', -- Add icons to lsp completion
+  'onsails/lspkind.nvim',        -- Add icons to lsp completion
 
 
 
 
   -- Search and navigation
-  -- telescope to search from and for files
   {
-    "nvim-telescope/telescope.nvim",
+    "nvim-telescope/telescope.nvim", -- Search from and for files
     tag = "0.1.1",
     -- or                            , branch = '0.1.x',
     dependencies = { { "nvim-lua/plenary.nvim" } },
   },
-  -- Harpoon
   {
     "ThePrimeagen/harpoon",
     lazy = true,
   },
-  -- shows words references
-  "RRethy/vim-illuminate",
+  "RRethy/vim-illuminate", -- Show words references
 
   -- Editing
   {
-    -- scrollbar
     {
-      "petertriho/nvim-scrollbar",
+      "petertriho/nvim-scrollbar", -- scrollbar
     },
-    "numToStr/Comment.nvim",
+    "numToStr/Comment.nvim",       -- Comments
     lazy = true,
   },
-  -- tree
-  "nvim-tree/nvim-tree.lua",
+  "nvim-tree/nvim-tree.lua", -- Tree
   {
     "windwp/nvim-ts-autotag",
     lazy = true,
   },
   "windwp/nvim-autopairs",
-  "mbbill/undotree",
+  "mbbill/undotree",                 -- Git like undotree
   "tpope/vim-surround",
+  "jose-elias-alvarez/null-ls.nvim", -- Formatter
 
 
 
