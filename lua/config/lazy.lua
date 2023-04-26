@@ -68,10 +68,9 @@ return require("lazy").setup({
     "windwp/nvim-ts-autotag",
     lazy = true,
   },
+  "windwp/nvim-autopairs",
   "mbbill/undotree",
   "tpope/vim-surround",
-
-
 
 
 
