@@ -54,7 +54,6 @@ return require("lazy").setup({
 	"windwp/nvim-autopairs",
 	{
 		"mbbill/undotree",
-		lazy = true,
 	}, -- Git like undotree
 	"tpope/vim-surround",
 	"jose-elias-alvarez/null-ls.nvim", -- Formatter

@@ -34,6 +34,7 @@ lsp.ensure_installed({
 	"html",
 	"cssls",
 	"lua_ls",
+	"marksman",
 })
 
 lsp.set_preferences({
@@ -79,7 +80,7 @@ end)
 lspconfig.emmet_ls.setup({
 	-- on_attach = on_attach,
 	capabilities = lsp_defaults.capabilities,
-	filetypes = { "css", "html", "javascript", "javascriptreact", "sass", "scss", "pug", "typescriptreact" },
+	filetypes = { "css", "html", "javascript", "javascriptreact", "sass", "scss", "pug", "typescriptreact", "markdown" },
 	init_options = {
 		html = {
 			options = {
@@ -131,6 +132,11 @@ lspconfig["lua_ls"].setup({
 			},
 		},
 	},
+})
+-- markdown config
+lspconfig["marksman"].setup({
+	capabilities = lsp_defaults.capabilities,
+	on_attach = lsp.on_attach,
 })
 lsp.setup()
 
