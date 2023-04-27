@@ -1,21 +1,44 @@
 # Configuración de neovim
 
-Este es mi archivo de configuración de neovim. Aquí están todos los plugins y la configuración
-en general de mi editor de texto. El cual será agregado más adelante.
-
-## Cosas importantes a recordar:
-
-Para que la configuración funcione es importante que exista el archivo <strong>init.vim</strong>. 
-En este archivo es donde se almacenan las configuraciones, por lo que **ya no se usa más el archivo 
-.vimrc, el cual era el predeterminado para vim y ya no funciona para NEOvim**
+Archivo de configuración de neovim basado 100% en lua. Para la realización de este archivo se tomó
+como inspiración el video de [ThePrimeagen](https://www.youtube.com/watch?v=w7i4amO_zaE)
 
 ## Plugins
 
-Para que los plugins funcionen se necesita:
+Entre los plugins disponibles se encuentran:
 
-* Packer instalado (de otra forma los plugins no correrán)
+- Catppuccin
+- Lualine
+- Nvim-web-devicons
+- Nvim-colorizer
+- Nvim-treesitter
+- Lspkind
+- Telescope
+- Plenary
+- Nvim-tree
+- Harpoon
+- Vim-illuminate
+- Comment.nvim
+- Nvim-ts-autotag
+- Nvim-autopairs
+- Undotree
+- Vim surround
+- Null-ls
+- Vim-fugitive
+- Lsp-zero
+- nvim.lspconfig
+- mason.nvim
+- mason-lspconfig
+- nvim-cmp
+- cmp-nvim-lsp
+- cmp-nvim-lua
+- cmp-buffer
+- cmp-path
+- Luasnip
+- Friendly-snippets
 
-## Ubicación
+## Uso
 
-Los archivos del directorio de neovim van en <code>~/.config/nvim/</code>. 
-Se deben mover los archivos dentro de esta carpeta hacia nvim.
+El archivo de configuración debe estar ubicado en sistemas unix en <code>~/.config/nvim/</code>.
+Una vez que se haya ubicado, usar neovim y se instalarán automáticamente todos los paquetes
+necesarios.
