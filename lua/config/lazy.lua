@@ -77,14 +77,18 @@ return require("lazy").setup({
 
 			-- Autocompletion
 			{ "hrsh7th/nvim-cmp" }, -- Required
-			{ "hrsh7th/cmp-nvim-lsp" }, -- Required
 			{ "hrsh7th/cmp-nvim-lua" },
 			{ "hrsh7th/cmp-buffer", lazy = true },
 			{ "hrsh7th/cmp-path", lazy = true },
-
-			--Snippets
-			{ "L3MON4D3/LuaSnip" }, -- Required
-			{ "rafamadriz/friendly-snippets" },
+			{
+				"hrsh7th/cmp-nvim-lsp",
+				dependencies = {
+					--Snippets
+					{ "L3MON4D3/LuaSnip" }, -- Required
+					{ "saadparwaiz1/cmp_luasnip" },
+					{ "rafamadriz/friendly-snippets" },
+				},
+			}, -- Required
 		},
 		lazy = true,
 	},
