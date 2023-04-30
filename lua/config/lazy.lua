@@ -65,7 +65,7 @@ return require("lazy").setup({
 	-- Git integration
 	{
 		"tpope/vim-fugitive",
-		lazy = true,
+		-- lazy = true,
 	},
 
 	-- LSP
