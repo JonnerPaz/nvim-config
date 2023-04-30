@@ -41,6 +41,10 @@ return require("lazy").setup({
 		lazy = true,
 	},
 	"RRethy/vim-illuminate", -- Show words references
+	-- Lua
+	{
+		"folke/zen-mode.nvim", -- zen mode
+	},
 
 	-- Editing
 	{

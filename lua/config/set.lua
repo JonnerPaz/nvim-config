@@ -38,8 +38,7 @@ vim.updatetime = 50
 -- vim.smartcase = true
 
 -- Set completeopt to have a better completion experience
-vim.completeopt = 'menuone,noselect'
+vim.completeopt = "menuone,noselect"
 
 -- Makes the line at the middle appear
-vim.colorcolumn = "80"
-
+-- vim.colorcolumn = "80"
