@@ -51,7 +51,9 @@ return require("lazy").setup({
 	{
 		"folke/zen-mode.nvim", -- zen mode
 	},
-
+	{
+		"folke/which-key.nvim",
+	},
 	-- Editing
 	-- Lua
 	{

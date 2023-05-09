@@ -40,5 +40,7 @@ vim.updatetime = 50
 -- Set completeopt to have a better completion experience
 vim.completeopt = "menuone,noselect"
 
+vim.timeout = true
+vim.timeoutlen = 300
 -- Makes the line at the middle appear
 -- vim.colorcolumn = "80"
