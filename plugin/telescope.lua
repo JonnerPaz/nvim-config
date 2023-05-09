@@ -1,14 +1,7 @@
 -- Telescope mappings
-local builtin = require('telescope.builtin')
--- generic fuzzy search
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-
--- Search between git_files REMEMBER change keyword before uncomment
--- vim.keymap.set('n', '<leader>fg', builtin.git_files, {})
-
--- search given word on each file 
-vim.keymap.set('n', '<leader>fg', function()
-	builtin.grep_string({search = vim.fn.input("Grep > ") });
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>ff", builtin.find_files, {}) -- Generic fuzzy search
+vim.keymap.set("n", "<leader>fg", function()
+	builtin.grep_string({ search = vim.fn.input("Grep > ") }) -- search given word on each file
 end)
--- list old files
-vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {})
+vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {}) -- list old files

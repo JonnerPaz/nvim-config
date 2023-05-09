@@ -4,5 +4,3 @@ vim.g.loaded_netrwPlugin = 1
 
 -- empty setup using defaults
 require("nvim-tree").setup()
-
-vim.keymap.set('n', '<C-b>', vim.cmd.NvimTreeToggle)
