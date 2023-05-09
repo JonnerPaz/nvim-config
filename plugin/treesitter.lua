@@ -10,7 +10,9 @@ require("nvim-treesitter.configs").setup({
 		"css",
 		"html",
 		"json",
+		"json5",
 		"tsx",
+		"gitcommit",
 		"bash",
 		"gitignore",
 	},
@@ -29,6 +31,10 @@ require("nvim-treesitter.configs").setup({
 	},
 	indent = {
 		enable = true,
+	},
+	rainbow = {
+		enable = true,
+		extended_mode = true,
 	},
 	-- from the ts-autotag plugin
 	autotag = {
