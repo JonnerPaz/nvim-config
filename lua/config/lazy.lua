@@ -47,6 +47,11 @@ return require("lazy").setup({
 	},
 
 	-- Editing
+	-- Lua
+	{
+		"folke/trouble.nvim",
+		dependencies = "nvim-tree/nvim-web-devicons",
+	},
 	{
 		"numToStr/Comment.nvim", -- Comments
 		lazy = true,
@@ -69,7 +74,6 @@ return require("lazy").setup({
 	},
 
 	-- LSP
-	-- LSP zero STARTS HERE
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v2.x",
