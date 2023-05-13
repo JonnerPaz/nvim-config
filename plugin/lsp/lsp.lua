@@ -51,9 +51,9 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "K", function()
 		vim.lsp.buf.hover()
 	end, opts)
-	--[[ vim.keymap.set("n", "<leader>vws", function()
+	vim.keymap.set("n", "<leader>vws", function()
 		vim.lsp.buf.workspace_symbol()
-	end, opts) ]]
+	end, opts)
 	vim.keymap.set("n", "<leader>vd", function()
 		vim.diagnostic.open_float()
 	end, opts)
@@ -62,15 +62,18 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "<leader>ca", function()
 		vim.lsp.buf.code_action()
 	end, opts)
-	--[[ vim.keymap.set("n", "<leader>vrr", function()
+	vim.keymap.set("n", "<leader>vrr", function()
 		vim.lsp.buf.references()
-	end, opts) ]]
+	end, opts)
 	vim.keymap.set("n", "<F2>", function()
 		vim.lsp.buf.rename()
 	end, opts)
-	--[[ vim.keymap.set("i", "<C-h>", function()
+	vim.keymap.set("i", "<C-h>", function()
 		vim.lsp.buf.signature_help()
-	end, opts) ]]
+	end, opts)
+	vim.keymap.set("i", "<C-h>", function()
+		vim.lsp.buf.signature_help()
+	end, opts)
 	vim.keymap.set("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", opts)
 end)
 
@@ -124,8 +127,7 @@ lspconfig["cssls"].setup({
 lspconfig["lua_ls"].setup({
 	capabilities = lsp_defaults.capabilities,
 	on_attach = lsp.on_attach,
-	settings = {
-		-- custom settings for lua
+	settings = { -- custom settings for lua
 		Lua = {
 			-- make the language server recognize "vim" global
 			diagnostics = {
