@@ -13,14 +13,18 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- configure null_ls
 null_ls.setup({
+	debug = false,
 	-- setup formatters & linters
 	sources = {
-		--  to disable file types use
-		--  "formatting.prettier.with({disabled_filetypes = {}})" (see null-ls docs)
-		formatting.prettier, -- js/ts formatter
+		formatting.prettierd.with({
+			diagnostics_format = "[#{c}] #{m} (#{s})",
+			env = {
+				PRETTIERD_DEFAULT_CONFIG = vim.fn.expand("~/.config/nvim/utils/formatting/.prettierrc.json"),
+			},
+		}),
+		-- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote" } }), -- js/ts formatter
 		formatting.stylua, -- lua formatter
 		diagnostics.eslint_d.with({
-			-- js/ts linter
 			-- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
 			condition = function(utils)
 				return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
