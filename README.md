@@ -3,6 +3,13 @@
 Archivo de configuración de neovim basado 100% en lua. Para la realización de este archivo se tomó
 como inspiración el video de [ThePrimeagen](https://www.youtube.com/watch?v=w7i4amO_zaE)
 
+## Requisitos
+
+- Neovim >= 0.9
+- Node installed
+  - Packages:
+    - Prettier <code>npm i -g prettier</code>
+
 ## Plugins
 
 Entre los plugins disponibles se encuentran:
