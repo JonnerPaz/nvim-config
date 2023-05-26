@@ -1,3 +1,4 @@
+return function ()
 require('Comment').setup({
     ---Add a space b/w comment and the line
     padding = true,
@@ -41,3 +42,4 @@ require('Comment').setup({
     ---Function to call after (un)comment
     post_hook = nil,
 })
+end

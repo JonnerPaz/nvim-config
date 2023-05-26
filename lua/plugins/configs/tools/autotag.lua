@@ -1,3 +1,4 @@
+return function ()
 -- import nvim-autopairs safely
 local autopairs_setup, autopairs = pcall(require, "nvim-autopairs")
 if not autopairs_setup then
@@ -29,3 +30,4 @@ end
 -- make autopairs and completion work together
 -- Add autopairs completion when confirm it
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+end

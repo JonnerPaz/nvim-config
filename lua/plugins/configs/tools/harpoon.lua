@@ -1,3 +1,4 @@
+return function ()
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
@@ -21,3 +22,4 @@ end)
 vim.keymap.set("n", "<C-k>", function()
 	ui.nav_prev()
 end)
+end
