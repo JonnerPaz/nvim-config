@@ -17,5 +17,9 @@ local ui = {
 		"folke/zen-mode.nvim", -- zen mode
 		config = require("ui.zen"),
 	},
+	{
+		"folke/which-key.nvim",
+		config = require("ui.which-key"),
+	},
 }
 return ui
