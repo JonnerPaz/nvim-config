@@ -10,4 +10,8 @@ return {
 		"loctvl842/monokai-pro.nvim",
 		config = require("themes.monokai-pro"),
 	},
+	{
+		"navarasu/onedark.nvim",
+		config = require("themes.onedark"),
+	},
 }
