@@ -43,4 +43,5 @@ return {
 		config = require("tools.tree"),
 	},
 	"RRethy/vim-illuminate", -- Show words references
+	"sindrets/diffview.nvim",
 }
