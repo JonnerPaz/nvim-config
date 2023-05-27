@@ -1,48 +1,75 @@
 # Configuración de neovim
 
+<!--toc:start-->
+
+- [Configuración de neovim](#configuración-de-neovim)
+  - [Requisitos](#requisitos)
+  - [Estructura de plugins](#estructura-de-plugins)
+  - [Uso](#uso)
+  <!--toc:end-->
+
 Archivo de configuración de neovim basado 100% en lua. Para la realización de este archivo se tomó
 como inspiración el video de [ThePrimeagen](https://www.youtube.com/watch?v=w7i4amO_zaE)
 
 ## Requisitos
 
 - Neovim >= 0.9
-- Node installed
-  - Packages:
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- Node instalado
+  - Paquetes:
     - Prettier <code>npm i -g prettier</code>
+    - stylua <code>cargo install stylua</code>
 
-## Plugins
+## Estructura de plugins
 
-Entre los plugins disponibles se encuentran:
-
-- Catppuccin
-- Lualine
-- Nvim-web-devicons
-- Nvim-colorizer
-- Nvim-treesitter
-- Lspkind
-- Telescope
-- Plenary
-- Nvim-tree
-- Harpoon
-- Vim-illuminate
-- Comment.nvim
-- Nvim-ts-autotag
-- Nvim-autopairs
-- Undotree
-- Vim surround
-- Null-ls
-- Vim-fugitive
-- Lsp-zero
-- nvim.lspconfig
-- mason.nvim
-- mason-lspconfig
-- nvim-cmp
-- cmp-nvim-lsp
-- cmp-nvim-lua
-- cmp-buffer
-- cmp-path
-- Luasnip
-- Friendly-snippets
+```
+.
+├── init.lua
+├── lazy-lock.json
+├── lua
+│   ├── core
+│   │   ├── init.lua
+│   │   ├── lazy.lua
+│   │   ├── remap.lua
+│   │   └── set.lua
+│   └── plugins
+│       ├── configs
+│       │   ├── lsp
+│       │   │   ├── cmp.lua
+│       │   │   ├── null_ls.lua
+│       │   │   └── zero.lua
+│       │   ├── themes
+│       │   │   ├── catppuccin.lua
+│       │   │   ├── colors.lua
+│       │   │   ├── github.lua
+│       │   │   ├── monokai-pro.lua
+│       │   │   └── onedark.lua
+│       │   ├── tools
+│       │   │   ├── autotag.lua
+│       │   │   ├── comment.lua
+│       │   │   ├── fugitive.lua
+│       │   │   ├── harpoon.lua
+│       │   │   ├── telescope.lua
+│       │   │   ├── tree.lua
+│       │   │   ├── treesitter.lua
+│       │   │   ├── trouble.lua
+│       │   │   └── undotree.lua
+│       │   └── ui
+│       │       ├── colorPicker.lua
+│       │       ├── lualine.lua
+│       │       ├── todo.lua
+│       │       ├── which-key.lua
+│       │       └── zen.lua
+│       ├── init.lua
+│       ├── lsp.lua
+│       ├── themes.lua
+│       ├── tools.lua
+│       └── ui.lua
+├── README.md
+├── TODO.md
+└── utils
+    └── formatting
+```
 
 ## Uso
 
