@@ -18,7 +18,6 @@ return function()
 		-- setup formatters & linters
 		sources = {
 			formatting.prettierd.with({
-				-- diagnostics_format = "[#{c}] #{m} (#{s})",
 				env = {
 					PRETTIERD_DEFAULT_CONFIG = vim.fn.expand("~/.config/nvim/utils/formatting/.prettierrc.json"),
 				},

@@ -1,5 +1,10 @@
 return function()
 	require("github-theme").setup({
+		-- themes:
+		-- github_dark
+		-- github_dark_dimmed
+		-- github_dark_high_contrast
+		-- github_dark_tritanopia
 		options = {
 			-- Compiled file's destination location
 			compile_path = vim.fn.stdpath("cache") .. "/github-theme",

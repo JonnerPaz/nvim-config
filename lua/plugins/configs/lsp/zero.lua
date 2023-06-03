@@ -43,7 +43,7 @@ return function()
 	})
 
 	lsp.on_attach(function(client, bufnr)
-		local opts = { buffer = bufnr, remap = false }
+		local opts = { noremap = true, silent = true, buffer = bufnr }
 
 		vim.keymap.set("n", "gi", function()
 			vim.lsp.buf.implementation()
@@ -86,13 +86,13 @@ return function()
 		filetypes = {
 			"css",
 			"html",
-			--[[ "javascript", ]]
+			--  "javascript",
 			"javascriptreact",
 			"sass",
 			"scss",
 			"pug",
 			"typescriptreact",
-			"markdown",
+			-- "markdown",
 		},
 		init_options = {
 			html = {
