@@ -14,4 +14,8 @@ return {
 		"navarasu/onedark.nvim",
 		config = require("themes.onedark"),
 	},
+	{
+		"rebelot/kanagawa.nvim",
+		config = require("themes.kanagawa"),
+	},
 }
