@@ -25,19 +25,24 @@ return function()
 	-- load vs-code like snippets from plugins (e.g. friendly-snippets)
 	require("luasnip/loaders/from_vscode").lazy_load()
 
-	lsp.setup_nvim_cmp({
+	-- Configure cmp
+	cmp.setup({
 		snippet = {
 			expand = function(args)
 				luasnip.lsp_expand(args.body)
 			end,
 		},
+		window = {
+			completion = cmp.config.window.bordered(),
+			documentation = cmp.config.window.bordered(),
+		},
 		mapping = cmp_mappings,
-		sources = cmp.config.sources({
+		sources = {
 			{ name = "nvim_lsp" }, -- lsp
 			{ name = "luasnip" }, -- snippets
 			{ name = "buffer" }, -- text within current buffer
 			{ name = "path" }, -- file system paths
-		}),
+		},
 		formatting = {
 			format = lspkind.cmp_format({
 				mode = "symbol_text",
