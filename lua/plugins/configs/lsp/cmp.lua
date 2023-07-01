@@ -36,13 +36,13 @@ return function()
 			completion = cmp.config.window.bordered(),
 			documentation = cmp.config.window.bordered(),
 		},
-		mapping = cmp_mappings,
 		sources = {
 			{ name = "nvim_lsp" }, -- lsp
 			{ name = "luasnip" }, -- snippets
 			{ name = "buffer" }, -- text within current buffer
 			{ name = "path" }, -- file system paths
 		},
+		mapping = cmp_mappings,
 		formatting = {
 			format = lspkind.cmp_format({
 				mode = "symbol_text",

@@ -112,8 +112,8 @@ return function()
 
 	-- configure tsserver
 	lspconfig.tsserver.setup({
-		on_attach = lsp.on_attach,
 		capabilities = lsp_defaults.capabilities,
+		on_attach = lsp.on_attach,
 		settings = {
 			completions = {
 				completeFunctionCalls = true,
@@ -124,6 +124,12 @@ return function()
 	lspconfig["cssls"].setup({
 		capabilities = lsp_defaults.capabilities,
 		on_attach = lsp.on_attach,
+	})
+
+	lspconfig["clangd"].setup({
+		capabilities = lsp_defaults.capabilities,
+		on_attach = lsp.on_attach,
+		cmd = { "clangd", "--offset-encoding=utf-16" },
 	})
 
 	-- configure lua server (with special settings)
