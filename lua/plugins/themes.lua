@@ -18,4 +18,9 @@ return {
 		"rebelot/kanagawa.nvim",
 		config = require("themes.kanagawa"),
 	},
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+	},
 }
