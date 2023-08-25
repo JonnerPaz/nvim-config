@@ -3,7 +3,7 @@ local vim = vim.opt
 vim.guicursor = ""
 
 -- Numbers and relative numbers
-vim.nu = true
+vim.number = true
 vim.relativenumber = true
 
 -- Indentation

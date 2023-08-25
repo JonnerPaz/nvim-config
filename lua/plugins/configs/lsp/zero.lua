@@ -110,6 +110,12 @@ return function()
 		on_attach = lsp.on_attach,
 	})
 
+	-- configure css server
+	lspconfig["cssls"].setup({
+		capabilities = lsp_defaults.capabilities,
+		on_attach = lsp.on_attach,
+	})
+
 	-- configure tsserver
 	lspconfig.tsserver.setup({
 		capabilities = lsp_defaults.capabilities,
@@ -121,10 +127,10 @@ return function()
 		},
 	})
 
-	-- configure css server
-	lspconfig["cssls"].setup({
+	lspconfig["jsonls"].setup({
 		capabilities = lsp_defaults.capabilities,
 		on_attach = lsp.on_attach,
+		single_file_support = true,
 	})
 
 	-- configure lua server (with special settings)
