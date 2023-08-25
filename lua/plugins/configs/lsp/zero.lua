@@ -35,7 +35,7 @@ return function()
 		"html",
 		"cssls",
 		"lua_ls",
-		"marksman",
+		"jdtls",
 	})
 
 	lsp.set_preferences({
@@ -120,16 +120,11 @@ return function()
 			},
 		},
 	})
+
 	-- configure css server
 	lspconfig["cssls"].setup({
 		capabilities = lsp_defaults.capabilities,
 		on_attach = lsp.on_attach,
-	})
-
-	lspconfig["clangd"].setup({
-		capabilities = lsp_defaults.capabilities,
-		on_attach = lsp.on_attach,
-		cmd = { "clangd", "--offset-encoding=utf-16" },
 	})
 
 	-- configure lua server (with special settings)
@@ -153,11 +148,13 @@ return function()
 			},
 		},
 	})
-	-- markdown config
-	lspconfig["marksman"].setup({
+
+	lspconfig["jdtls"].setup({
 		capabilities = lsp_defaults.capabilities,
 		on_attach = lsp.on_attach,
+		single_file_support = true,
 	})
+
 	lsp.setup()
 
 	vim.diagnostic.config({
