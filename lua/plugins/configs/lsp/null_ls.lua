@@ -24,7 +24,7 @@ return function()
 			}),
 			-- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote" } }), -- js/ts formatter
 			formatting.stylua, -- lua formatter
-			formatting.clang_format,
+			formatting.google_java_format,
 			diagnostics.eslint_d.with({
 				-- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
 				condition = function(utils)
