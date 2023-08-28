@@ -11,7 +11,6 @@ return function()
 			"scss",
 			"css",
 			"java",
-			"cpp",
 			"html",
 			"json",
 			"json5",

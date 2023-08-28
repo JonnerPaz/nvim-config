@@ -9,17 +9,18 @@ local ui = {
 		},
 		config = require("ui.lualine"),
 	},
+	{ "karb94/neoscroll.nvim", config = require("ui.scroll") },
 	{
 		"NvChad/nvim-colorizer.lua", -- Add colors to words, blue
 		config = require("ui.colorPicker"),
 	},
 	{
-		"folke/zen-mode.nvim", -- zen mode
-		config = require("ui.zen"),
-	},
-	{
 		"folke/which-key.nvim",
 		config = require("ui.which-key"),
+	},
+	{
+		"folke/zen-mode.nvim", -- zen mode
+		config = require("ui.zen"),
 	},
 }
 return ui
