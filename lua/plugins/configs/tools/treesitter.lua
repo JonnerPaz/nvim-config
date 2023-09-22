@@ -10,7 +10,6 @@ return function()
 			"query",
 			"scss",
 			"css",
-			"java",
 			"html",
 			"json",
 			"json5",

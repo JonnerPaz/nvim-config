@@ -35,7 +35,6 @@ return function()
 		"html",
 		"cssls",
 		"lua_ls",
-		"jdtls",
 	})
 
 	lsp.set_preferences({
@@ -153,12 +152,6 @@ return function()
 				},
 			},
 		},
-	})
-
-	lspconfig["jdtls"].setup({
-		capabilities = lsp_defaults.capabilities,
-		on_attach = lsp.on_attach,
-		single_file_support = true,
 	})
 
 	lsp.setup()

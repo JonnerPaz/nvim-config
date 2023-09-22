@@ -9,7 +9,6 @@ local ui = {
 		},
 		config = require("ui.lualine"),
 	},
-	{ "karb94/neoscroll.nvim", config = require("ui.scroll") },
 	{
 		"NvChad/nvim-colorizer.lua", -- Add colors to words, blue
 		config = require("ui.colorPicker"),

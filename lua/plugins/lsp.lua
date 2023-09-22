@@ -11,8 +11,10 @@ return {
 			-- Autocompletion
 			{ "hrsh7th/nvim-cmp", config = require("lsp.cmp") }, -- Required
 			{ "hrsh7th/cmp-nvim-lua" },
-			{ "hrsh7th/cmp-buffer", lazy = true },
-			{ "hrsh7th/cmp-path", lazy = true },
+			{ "hrsh7th/cmp-buffer", lazy = false },
+			{ "hrsh7th/cmp-cmdline", lazy = false },
+			{ "onsails/lspkind.nvim" },
+			{ "hrsh7th/cmp-path", lazy = false },
 			{
 				"hrsh7th/cmp-nvim-lsp",
 				dependencies = {
@@ -26,5 +28,5 @@ return {
 		config = require("lsp.zero"),
 	},
 	{ "jose-elias-alvarez/null-ls.nvim", config = require("lsp.null_ls") }, -- Formatter
-	"onsails/lspkind.nvim", -- Add icons to lsp completion
+	-- Add icons to lsp completion
 }
