@@ -1,162 +1,166 @@
 return function()
-	local lsp = require("lsp-zero")
+	local lsp_zero = require("lsp-zero")
 	local lspconfig = require("lspconfig")
+	local cmp = require("cmp")
+	local cmp_select = { behavior = cmp.SelectBehavior.Select }
 	local lsp_defaults = lspconfig.util.default_config
 	lsp_defaults.capabilities =
 		vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-	-- Old capabilities
-	-- local capabilities = vim.lsp.protocol.make_client_capabilities()
-	-- capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-	lsp.preset({
-		name = "recommended",
-		float_border = "rounded",
-		call_servers = "local",
-		configure_diagnostics = true,
-		setup_servers_on_start = true,
-		set_lsp_keymaps = {
-			preserve_mappings = false,
-			omit = {},
-		},
-		manage_nvim_cmp = {
-			set_sources = "recommended",
-			set_basic_mappings = true,
-			set_extra_mappings = false,
-			use_luasnip = true,
-			set_format = true,
-			documentation_window = true,
-		},
-	})
-
-	lsp.ensure_installed({
-		"tsserver",
-		"eslint",
-		"html",
-		"cssls",
-		"lua_ls",
-	})
-
-	lsp.set_preferences({
-		sign_icons = { "*" },
-	})
-
-	lsp.on_attach(function(client, bufnr)
+	lsp_zero.on_attach(function(client, bufnr)
 		local opts = { noremap = true, silent = true, buffer = bufnr }
-
-		vim.keymap.set("n", "gi", function()
-			vim.lsp.buf.implementation()
-		end, opts)
-		vim.keymap.set("n", "gd", function()
-			vim.lsp.buf.definition()
-		end, opts)
-		vim.keymap.set("n", "K", function()
-			vim.lsp.buf.hover()
-		end, opts)
-		--[[ vim.keymap.set("n", "<leader>vws", function()
-    vim.lsp.buf.workspace_symbol()
-  end, opts) ]]
-		-- lets you see the diagnostics appearing in window on a float
-		vim.keymap.set("n", "<leader>vd", function()
-			vim.diagnostic.open_float()
-		end, opts)
-		-- vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-		-- vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-		vim.keymap.set("n", "<leader>ca", function()
-			vim.lsp.buf.code_action()
-		end, opts)
-		vim.keymap.set("n", "gr", function()
-			vim.lsp.buf.references()
-		end, opts)
-		vim.keymap.set("n", "<F2>", function()
-			vim.lsp.buf.rename()
-		end, opts)
-		--[[ vim.keymap.set("i", "<C-h>", function()
-    vim.lsp.buf.signature_help()
-  end, opts) ]]
-		vim.keymap.set("n", "<leader>lf", function()
+		local bind = vim.keymap.set
+		bind("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+		bind("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+		bind("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
+		bind("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
+		bind("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
+		bind("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+		bind("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+		bind("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+		bind({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
+		bind("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+		bind("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
+		bind("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
+		bind("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
+		bind("n", "<leader>lf", function()
 			vim.lsp.buf.format()
 		end, opts)
 	end)
 
-	lspconfig.emmet_ls.setup({
-		-- on_attach = on_attach,
-		capabilities = lsp_defaults.capabilities,
-		filetypes = {
-			-- "css",
+	--[[ lsp_zero.set_sign_icons({
+		error = "✘",
+		warn = "▲",
+		hint = "⚑",
+		info = "»",
+	}) ]]
+
+	require("mason").setup({})
+
+	require("mason-lspconfig").setup({
+		ensure_installed = {
+			"tsserver",
+			"eslint",
 			"html",
-			--  "javascript",
-			"javascriptreact",
-			"sass",
-			-- "scss",
-			"pug",
-			"typescriptreact",
-			-- "markdown",
+			"cssls",
+			"lua_ls",
 		},
-		init_options = {
-			html = {
-				options = {
-					-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-					["bem.enabled"] = true,
-				},
-			},
-		},
-	})
-
-	-- configure html server
-	lspconfig["html"].setup({
-		capabilities = lsp_defaults.capabilities,
-		on_attach = lsp.on_attach,
-	})
-
-	-- configure css server
-	lspconfig["cssls"].setup({
-		capabilities = lsp_defaults.capabilities,
-		on_attach = lsp.on_attach,
-	})
-
-	-- configure tsserver
-	lspconfig.tsserver.setup({
-		capabilities = lsp_defaults.capabilities,
-		on_attach = lsp.on_attach,
-		settings = {
-			completions = {
-				completeFunctionCalls = true,
-			},
-		},
-	})
-
-	lspconfig["jsonls"].setup({
-		capabilities = lsp_defaults.capabilities,
-		on_attach = lsp.on_attach,
-		single_file_support = true,
-	})
-
-	-- configure lua server (with special settings)
-	lspconfig["lua_ls"].setup({
-		capabilities = lsp_defaults.capabilities,
-		on_attach = lsp.on_attach,
-		settings = {
-			-- custom settings for lua
-			Lua = {
-				-- make the language server recognize "vim" global
-				diagnostics = {
-					globals = { "vim" },
-				},
-				workspace = {
-					-- make language server aware of runtime files
-					library = {
-						[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-						[vim.fn.stdpath("config") .. "/lua"] = true,
+		handlers = {
+			lsp_zero.default_setup,
+			lua_ls = function()
+				local lua_opts = lsp_zero.nvim_lua_ls()
+				lspconfig.lua_ls.setup(lua_opts)
+			end,
+			emmet_ls = function()
+				lspconfig.emmet_ls.setup({
+					filetypes = {
+						-- "css",
+						"html",
+						--  "javascript",
+						"javascriptreact",
+						"sass",
+						-- "scss",
+						"pug",
+						"typescriptreact",
+						-- "markdown",
 					},
-				},
-			},
+					init_options = {
+						html = {
+							options = {
+								-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+								["bem.enabled"] = true,
+							},
+						},
+					},
+				})
+			end,
+			html = function()
+				lspconfig["html"].setup({
+					capabilities = lsp_defaults.capabilities,
+					on_attach = lsp_zero.on_attach,
+				})
+			end,
+			cssls = function()
+				lspconfig["cssls"].setup({
+					capabilities = lsp_defaults.capabilities,
+					on_attach = lsp_zero.on_attach,
+				})
+			end,
+			tsserver = function()
+				lspconfig.tsserver.setup({
+					capabilities = lsp_defaults.capabilities,
+					on_attach = lsp_zero.on_attach,
+					settings = {
+						completions = {
+							completeFunctionCalls = true,
+						},
+					},
+				})
+			end,
+			jsonls = function()
+				lspconfig["jsonls"].setup({
+					capabilities = lsp_defaults.capabilities,
+					on_attach = lsp_zero.on_attach,
+					single_file_support = true,
+				})
+			end,
 		},
 	})
 
-	lsp.setup()
+	lsp_zero.setup()
 
 	vim.diagnostic.config({
 		virtual_text = true,
+	})
+
+	-- import luasnip plugin safely
+	local luasnip_status, luasnip = pcall(require, "luasnip")
+	if not luasnip_status then
+		return
+	end
+
+	-- import lspkind plugin safely
+	local lspkind_status, lspkind = pcall(require, "lspkind")
+	if not lspkind_status then
+		return
+	end
+
+	-- load vs-code like snippets from plugins (e.g. friendly-snippets)
+	require("luasnip/loaders/from_vscode").lazy_load()
+
+	-- Configure cmp
+	local cmp_mappings = cmp.mapping.preset.insert({
+		["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
+		["<C-j>"] = cmp.mapping.select_next_item(cmp_select),
+		["<TAB>"] = cmp.mapping.select_next_item(cmp_select),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		["<C-e>"] = cmp.mapping.abort(),
+		["<C-Space>"] = cmp.mapping.complete(),
+	})
+	cmp.setup({
+		snippet = {
+			expand = function(args)
+				luasnip.lsp_expand(args.body)
+			end,
+		},
+		window = {
+			completion = cmp.config.window.bordered(),
+			documentation = cmp.config.window.bordered(),
+		},
+		sources = {
+			{ name = "nvim_lsp" }, -- lsp
+			{ name = "luasnip" }, -- snippets
+			{ name = "buffer" }, -- text within current buffer
+			{ name = "path" }, -- file system paths
+		},
+		mapping = cmp_mappings,
+		formatting = {
+			fields = { "abbr", "kind", "menu" },
+			format = lspkind.cmp_format({
+				mode = "symbol_text",
+				maxwidth = 70, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+				ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+			}),
+		},
 	})
 end

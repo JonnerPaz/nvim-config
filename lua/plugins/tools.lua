@@ -35,7 +35,7 @@ return {
 	{
 		-- Git integration
 		"tpope/vim-fugitive",
-		config = true,
+		config = require("tools.fugitive"),
 		cmd = "Git",
 	},
 	{ "sindrets/diffview.nvim", cmd = "DiffViewOpen" },

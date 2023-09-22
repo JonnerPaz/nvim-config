@@ -1,29 +1,28 @@
 return {
 	{
 		"VonHeikemen/lsp-zero.nvim",
-		branch = "v2.x",
+		branch = "v3.x",
 		dependencies = {
 			-- LSP Support
-			{ "neovim/nvim-lspconfig" }, -- Required
-			"williamboman/mason.nvim",
-			{ "williamboman/mason-lspconfig.nvim" }, -- Optional
+			{ "neovim/nvim-lspconfig" },
+			{ "williamboman/mason.nvim" },
+			{ "williamboman/mason-lspconfig.nvim" },
 
 			-- Autocompletion
-			{ "hrsh7th/nvim-cmp", config = require("lsp.cmp") }, -- Required
+			{ "hrsh7th/nvim-cmp" },
 			{ "hrsh7th/cmp-nvim-lua" },
-			{ "hrsh7th/cmp-buffer", lazy = false },
-			{ "hrsh7th/cmp-cmdline", lazy = false },
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-cmdline" },
 			{ "onsails/lspkind.nvim" },
-			{ "hrsh7th/cmp-path", lazy = false },
+			{ "hrsh7th/cmp-path" },
 			{
 				"hrsh7th/cmp-nvim-lsp",
 				dependencies = {
-					--Snippets
-					{ "L3MON4D3/LuaSnip" }, -- Required
+					{ "L3MON4D3/LuaSnip" }, -- Snippets
 					{ "saadparwaiz1/cmp_luasnip" },
 					{ "rafamadriz/friendly-snippets" },
 				},
-			}, -- Required
+			},
 		},
 		config = require("lsp.zero"),
 	},
