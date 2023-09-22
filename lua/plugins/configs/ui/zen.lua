@@ -62,4 +62,7 @@ return function()
 		--[[ on_close = function()
   end, ]]
 	})
+
+	-- zen mappings
+	vim.keymap.set("n", "<leader>zz", vim.cmd.ZenMode, { desc = "Hacker Mode :)" })
 end

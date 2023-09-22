@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim", -- Search from and for files
-		tag = "0.1.1",
+		tag = "0.1.3",
 		-- or                            , branch = '0.1.x',
 		dependencies = { { "nvim-lua/plenary.nvim" } },
 		config = require("tools.telescope"),
@@ -30,10 +30,13 @@ return {
 	},
 	{
 		"mbbill/undotree",
+		config = require("tools.undotree"),
 	},
 	{
 		-- Git integration
 		"tpope/vim-fugitive",
+		config = true,
+		cmd = "Git",
 	},
 	{ "sindrets/diffview.nvim", cmd = "DiffViewOpen" },
 	{
