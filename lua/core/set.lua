@@ -1,3 +1,5 @@
+vim.g.snippets = "luasnip"
+
 local vim = vim.opt
 -- Makes cursor big when typing
 vim.guicursor = ""
@@ -23,7 +25,7 @@ vim.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.undofile = true
 
 -- Search text options
-vim.hlsearch = true
+vim.hlsearch = false
 vim.incsearch = true
 
 vim.termguicolors = true
@@ -34,7 +36,7 @@ vim.isfname:append("@-@")
 
 vim.updatetime = 50
 -- Ignore case in search patterns
--- vim.ic = true
+-- vim.ignorecase = true
 -- vim.smartcase = true
 
 -- Set completeopt to have a better completion experience
@@ -44,3 +46,6 @@ vim.timeout = true
 vim.timeoutlen = 300
 -- Makes the line at the middle appear
 -- vim.colorcolumn = "80"
+vim.splitright = true
+vim.laststatus = 3
+vim.cmdheight = 1
