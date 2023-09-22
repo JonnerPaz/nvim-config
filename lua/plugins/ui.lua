@@ -20,6 +20,8 @@ local ui = {
 	{
 		"folke/zen-mode.nvim", -- zen mode
 		config = require("ui.zen"),
+		lazy = true,
+		cmd = "ZenMode",
 	},
 }
 return ui
