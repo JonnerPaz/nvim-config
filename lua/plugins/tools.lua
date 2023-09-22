@@ -15,6 +15,7 @@ return {
 		"folke/trouble.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
 		config = require("tools.trouble"),
+		cmd = "Trouble",
 	},
 	{
 		"numToStr/Comment.nvim", -- Comments
@@ -29,19 +30,15 @@ return {
 	},
 	{
 		"mbbill/undotree",
-	}, -- Git like undotree
-	{
-		"tpope/vim-surround",
 	},
 	{
 		-- Git integration
 		"tpope/vim-fugitive",
-		-- lazy = true,
 	},
+	{ "sindrets/diffview.nvim", cmd = "DiffViewOpen" },
 	{
 		"nvim-tree/nvim-tree.lua", -- Tree
 		config = require("tools.tree"),
 	},
 	"RRethy/vim-illuminate", -- Show words references
-	"sindrets/diffview.nvim",
 }
