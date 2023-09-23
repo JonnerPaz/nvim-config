@@ -25,5 +25,15 @@ local ui = {
 		config = require("ui.zen"),
 		event = "VeryLazy",
 	},
+	{
+		"goolord/alpha-nvim",
+		config = function()
+			require("alpha").setup(require("alpha.themes.dashboard").config)
+		end,
+	},
+	{
+		"stevearc/dressing.nvim",
+		opts = {},
+	},
 }
 return ui
