@@ -44,35 +44,14 @@ return function()
 			"html",
 			"cssls",
 			"lua_ls",
+			"emmet_language_server",
 		},
+
 		handlers = {
 			lsp_zero.default_setup,
 			lua_ls = function()
 				local lua_opts = lsp_zero.nvim_lua_ls()
 				lspconfig.lua_ls.setup(lua_opts)
-			end,
-			emmet_ls = function()
-				lspconfig.emmet_ls.setup({
-					filetypes = {
-						-- "css",
-						"html",
-						--  "javascript",
-						"javascriptreact",
-						"sass",
-						-- "scss",
-						"pug",
-						"typescriptreact",
-						-- "markdown",
-					},
-					init_options = {
-						html = {
-							options = {
-								-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-								["bem.enabled"] = true,
-							},
-						},
-					},
-				})
 			end,
 			html = function()
 				lspconfig["html"].setup({
@@ -104,6 +83,40 @@ return function()
 					single_file_support = true,
 				})
 			end,
+			eslint = function()
+				lspconfig["eslint"].setup({
+					capabilities = lsp_defaults.capabilities,
+					on_attach = lsp_zero.on_attach,
+					single_file_support = true,
+				})
+			end,
+			emmet_language_server = function()
+				lspconfig.emmet_language_server.setup({})
+			end,
+			-- Old emmet_ls language server
+			-- emmet_ls = function()
+			-- 	lspconfig.emmet_ls.setup({
+			-- 		filetypes = {
+			-- 			-- "css",
+			-- 			"html",
+			-- 			--  "javascript",
+			-- 			"javascriptreact",
+			-- 			"sass",
+			-- 			-- "scss",
+			-- 			"pug",
+			-- 			"typescriptreact",
+			-- 			-- "markdown",
+			-- 		},
+			-- 		init_options = {
+			-- 			html = {
+			-- 				options = {
+			-- 					-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+			-- 					["bem.enabled"] = true,
+			-- 				},
+			-- 			},
+			-- 		},
+			-- 	})
+			-- end,
 		},
 	})
 
