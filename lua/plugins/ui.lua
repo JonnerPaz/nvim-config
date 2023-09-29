@@ -20,6 +20,7 @@ local ui = {
 		config = require("ui.which-key"),
 		event = "VeryLazy",
 	},
+	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async", config = require("ui.ufo") },
 	{
 		"folke/zen-mode.nvim", -- zen mode
 		config = require("ui.zen"),

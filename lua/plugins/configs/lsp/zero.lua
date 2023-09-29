@@ -7,6 +7,9 @@ return function()
 	lsp_defaults.capabilities =
 		vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
 
+	-- folding capabilities
+	lsp_defaults.capabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
+
 	lsp_zero.on_attach(function(client, bufnr)
 		local opts = { noremap = true, silent = true, buffer = bufnr }
 		local bind = vim.keymap.set
@@ -93,30 +96,6 @@ return function()
 			emmet_language_server = function()
 				lspconfig.emmet_language_server.setup({})
 			end,
-			-- Old emmet_ls language server
-			-- emmet_ls = function()
-			-- 	lspconfig.emmet_ls.setup({
-			-- 		filetypes = {
-			-- 			-- "css",
-			-- 			"html",
-			-- 			--  "javascript",
-			-- 			"javascriptreact",
-			-- 			"sass",
-			-- 			-- "scss",
-			-- 			"pug",
-			-- 			"typescriptreact",
-			-- 			-- "markdown",
-			-- 		},
-			-- 		init_options = {
-			-- 			html = {
-			-- 				options = {
-			-- 					-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-			-- 					["bem.enabled"] = true,
-			-- 				},
-			-- 			},
-			-- 		},
-			-- 	})
-			-- end,
 		},
 	})
 

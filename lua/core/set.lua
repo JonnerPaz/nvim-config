@@ -49,3 +49,10 @@ vim.timeoutlen = 300
 vim.splitright = true
 vim.laststatus = 3
 vim.cmdheight = 1
+
+-- folding
+vim.foldmethod = "indent"
+vim.foldcolumn = "1"
+vim.foldlevel = 99
+vim.foldlevelstart = 99
+vim.foldenable = true
