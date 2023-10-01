@@ -11,7 +11,7 @@ return {
 		"ThePrimeagen/harpoon",
 		config = require("tools.harpoon"),
 	},
-	{ "github/copilot.vim" },
+	{ "github/copilot.vim", cmd = "Copilot enable" },
 	{
 		"folke/trouble.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
