@@ -5,8 +5,24 @@ return {
 		dependencies = {
 			-- LSP Support
 			{ "neovim/nvim-lspconfig" },
-			{ "williamboman/mason.nvim" },
-			{ "williamboman/mason-lspconfig.nvim" },
+			{
+				"williamboman/mason.nvim",
+				dependencies = {
+					"williamboman/mason-lspconfig.nvim",
+					{
+						"WhoIsSethDaniel/mason-tool-installer.nvim",
+						config = function()
+							require("mason-tool-installer").setup({
+								ensure_installed = {
+									"prettierd",
+									"prettier",
+									"stylua",
+								},
+							})
+						end,
+					},
+				},
+			},
 
 			-- Autocompletion
 			{ "hrsh7th/nvim-cmp" },
@@ -26,6 +42,9 @@ return {
 		},
 		config = require("lsp.zero"),
 	},
-	{ "jose-elias-alvarez/null-ls.nvim", config = require("lsp.null_ls") }, -- Formatter
-	-- Add icons to lsp completion
+	{
+		"stevearc/conform.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		config = require("lsp.conform"),
+	},
 }

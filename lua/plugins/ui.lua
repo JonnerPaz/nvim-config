@@ -21,25 +21,8 @@ local ui = {
 		event = "VeryLazy",
 	},
 	{
-		"kevinhwang91/nvim-ufo",
-		dependencies = "kevinhwang91/promise-async",
-		config = require("ui.ufo"),
-		event = "VeryLazy",
-	},
-	{
 		"folke/zen-mode.nvim", -- zen mode
 		config = require("ui.zen"),
-		event = "VeryLazy",
-	},
-	{
-		"goolord/alpha-nvim",
-		config = function()
-			require("alpha").setup(require("alpha.themes.dashboard").config)
-		end,
-	},
-	{
-		"stevearc/dressing.nvim",
-		opts = {},
 		event = "VeryLazy",
 	},
 }

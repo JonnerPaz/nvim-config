@@ -7,4 +7,4 @@ local plugins = { lsp, ui, tools, themes }
 
 require("lazy").setup(plugins)
 
-vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme("onedark")

@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim", -- Search from and for files
-		tag = "0.1.3",
+		tag = "0.1.5",
 		-- or                            , branch = '0.1.x',
 		dependencies = { { "nvim-lua/plenary.nvim" } },
 		config = require("tools.telescope"),
@@ -11,7 +11,6 @@ return {
 		"ThePrimeagen/harpoon",
 		config = require("tools.harpoon"),
 	},
-	{ "github/copilot.vim", cmd = "Copilot enable" },
 	{
 		"folke/trouble.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",

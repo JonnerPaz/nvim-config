@@ -26,9 +26,6 @@ return function()
 		bind("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
 		bind("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
 		bind("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
-		bind("n", "<leader>lf", function()
-			vim.lsp.buf.format()
-		end, opts)
 	end)
 
 	--[[ lsp_zero.set_sign_icons({

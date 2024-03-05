@@ -4,7 +4,13 @@ return function()
 	vim.g.loaded_netrwPlugin = 1
 
 	-- empty setup using defaults
-	require("nvim-tree").setup()
+	require("nvim-tree").setup(
+    {
+      view = {
+        side = "right"
+      }
+    }
+  )
 
 	-- Mappings
 	vim.keymap.set("n", "<C-b>", vim.cmd.NvimTreeToggle)
