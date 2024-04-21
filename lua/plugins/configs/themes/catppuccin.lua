@@ -7,7 +7,7 @@ return function()
 			light = "latte",
 			dark = "mocha",
 		},
-		transparent_background = false,
+		transparent_background = true,
 		show_end_of_buffer = true, -- show the '~' characters after the end of buffers
 		term_colors = true,
 		dim_inactive = {
@@ -25,7 +25,7 @@ return function()
 			keywords = { "bold" },
 			strings = {},
 			variables = {},
-			numbers = {},
+			numbers = { "bold" },
 			booleans = { "bold" },
 			properties = {},
 			types = { "italic" },
