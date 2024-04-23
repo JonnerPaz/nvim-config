@@ -7,6 +7,7 @@ return function()
 			"c",
 			"lua",
 			"vim",
+			"vimdoc",
 			"query",
 			"scss",
 			"css",
