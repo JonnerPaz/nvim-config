@@ -16,6 +16,11 @@ local ui = {
 		cmd = "ColorizerToggle",
 	},
 	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = require("ui.todo-comments"),
+	},
+	{
 		"folke/which-key.nvim",
 		config = require("ui.which-key"),
 		event = "VeryLazy",

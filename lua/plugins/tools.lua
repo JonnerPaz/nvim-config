@@ -15,7 +15,6 @@ return {
 		"folke/trouble.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
 		config = require("tools.trouble"),
-		cmd = "Trouble",
 	},
 	{
 		"numToStr/Comment.nvim", -- Comments

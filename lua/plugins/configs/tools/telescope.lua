@@ -11,5 +11,9 @@ return function()
 
 	vim.keymap.set("n", "<leader>fc", builtin.commands, { desc = "Find Commands" })
 
-	vim.keymap.set("n", "<leader>ft", builtin.commands, { desc = "Find Commands" })
+	vim.keymap.set("n", "<leader>fm", builtin.man_pages, { desc = "Find Man pages" })
+
+	vim.keymap.set("n", "<leader>ft", builtin.colorscheme, { desc = "Find Colorschemes" })
+
+	vim.keymap.set("n", "<leader>fkm", builtin.keymaps, { desc = "Find Keymaps" })
 end
