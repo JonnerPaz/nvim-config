@@ -11,29 +11,23 @@ return function()
 	lsp_defaults.capabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
 
 	lsp_zero.on_attach(function(client, bufnr)
-		local opts = { noremap = true, silent = true, buffer = bufnr }
+		local opts = function(desc)
+			return { noremap = true, silent = true, buffer = bufnr, desc = desc }
+		end
 		local bind = vim.keymap.set
-		bind("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-		bind("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
-		bind("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
-		bind("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
-		bind("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
-		bind("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-		bind("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-		bind("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-		bind({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
-		bind("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-		bind("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
-		bind("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
-		bind("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
+		bind("n", "K", vim.lsp.buf.hover, opts("display information on hover"))
+		bind("n", "gd", vim.lsp.buf.definition, opts("Go to definition of symbol under cursor"))
+		bind("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration of symbol under cursor"))
+		bind("n", "gi", vim.lsp.buf.implementation, opts("Go to implementation of a symbol"))
+		bind("n", "gt", vim.lsp.buf.type_definition, opts("Go type definition"))
+		bind("n", "gr", vim.lsp.buf.references, opts("Go references"))
+		bind("n", "gs", vim.lsp.buf.signature_help, opts("signatures"))
+		bind("n", "<F2>", vim.lsp.buf.rename, opts("Rename symbol"))
+		bind("n", "<F4>", vim.lsp.buf.code_action, opts("Code Action"))
+		bind("n", "gl", vim.diagnostic.open_float, opts("Diagnostic float"))
+		bind("n", "[d", vim.diagnostic.goto_next, opts("Go next diagnostic"))
+		bind("n", "]d", vim.diagnostic.goto_prev, opts("Go prev diagnostic"))
 	end)
-
-	--[[ lsp_zero.set_sign_icons({
-		error = "✘",
-		warn = "▲",
-		hint = "⚑",
-		info = "»",
-	}) ]]
 
 	require("mason").setup({})
 
