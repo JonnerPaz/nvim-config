@@ -47,8 +47,4 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		config = require("lsp.conform"),
 	},
-	{
-		"dmmulroy/ts-error-translator.nvim",
-		config = require("lsp.ts-error"),
-	},
 }
