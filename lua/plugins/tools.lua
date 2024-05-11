@@ -42,5 +42,12 @@ return {
 		"nvim-tree/nvim-tree.lua", -- Tree
 		config = require("tools.tree"),
 	},
+	{
+		"stevearc/oil.nvim",
+		opts = {},
+		-- Optional dependencies
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = require("tools.oil"),
+	},
 	"RRethy/vim-illuminate", -- Show words references
 }
