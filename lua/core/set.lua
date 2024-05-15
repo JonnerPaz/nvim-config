@@ -50,6 +50,10 @@ vim.splitright = true
 vim.laststatus = 3
 vim.cmdheight = 1
 
+vim.formatoptions:remove("o")
+
+vim.background = "dark"
+
 -- folding
 --[[ vim.foldmethod = "indent"
 vim.foldcolumn = "1"

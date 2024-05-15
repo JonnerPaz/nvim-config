@@ -16,8 +16,6 @@ return {
 		"folke/tokyonight.nvim",
 		-- priority = 1000,
 	},
-	{
-		"luisiacc/gruvbox-baby",
-		config = require("themes.gruvbox"),
-	},
+	{ "EdenEast/nightfox.nvim" }, -- lazy
+	{ "rose-pine/neovim", name = "rose-pine" },
 }

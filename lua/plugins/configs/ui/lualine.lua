@@ -6,7 +6,7 @@ return function()
 			component_separators = { left = "", right = "" },
 			section_separators = { left = "", right = "" },
 			disabled_filetypes = {
-				statusline = { "oil", "NvimTree" },
+				statusline = { "oil", "NvimTree", "Intro" },
 				winbar = {},
 			},
 			ignore_focus = {},
