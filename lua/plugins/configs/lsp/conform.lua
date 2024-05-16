@@ -5,6 +5,8 @@ return function()
 			lua = { "stylua" },
 			javascript = { { "prettierd", "prettier" } },
 			typescript = { { "prettierd", "prettier" } },
+			javascriptreact = { { "prettierd", "prettier" } },
+			typescriptreact = { { "prettierd", "prettier" } },
 		},
 		format_on_save = {
 			lsp_fallback = true,
