@@ -36,8 +36,8 @@ vim.isfname:append("@-@")
 
 vim.updatetime = 50
 -- Ignore case in search patterns
--- vim.ignorecase = true
--- vim.smartcase = true
+vim.smartcase = true
+vim.ignorecase = true
 
 -- Set completeopt to have a better completion experience
 vim.completeopt = "menuone,noselect"
@@ -51,8 +51,6 @@ vim.laststatus = 3
 vim.cmdheight = 1
 
 vim.formatoptions:remove("o")
-
-vim.background = "dark"
 
 -- folding
 --[[ vim.foldmethod = "indent"

@@ -9,6 +9,7 @@ return {
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", config = require("tools.treesitter") },
 	{
 		"ThePrimeagen/harpoon",
+		event = "BufEnter",
 		config = require("tools.harpoon"),
 	},
 	{
@@ -37,11 +38,11 @@ return {
 		config = require("tools.fugitive"),
 		cmd = "Git",
 	},
-	{ "sindrets/diffview.nvim", cmd = "DiffViewOpen" },
-	{
+	{ "sindrets/diffview.nvim" },
+	--[[ {
 		"nvim-tree/nvim-tree.lua", -- Tree
 		config = require("tools.tree"),
-	},
+	}, ]]
 	{
 		"stevearc/oil.nvim",
 		opts = {},

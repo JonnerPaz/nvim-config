@@ -32,7 +32,7 @@ return function()
 	remap("n", "<leader>fo", builtin.vim_options, { desc = "Find vim options" })
 	remap("n", "<leader>fe", builtin.autocommands, { desc = "Find Autocommands/Events" })
 	remap("n", "<leader>ft", builtin.colorscheme, { desc = "Find Colorschemes" })
-	remap("n", "<leader>fkm", builtin.keymaps, { desc = "Find Keymaps" })
+	remap("n", "<leader>fk", builtin.keymaps, { desc = "Find Keymaps" })
 	remap("n", "<leader>fl", builtin.treesitter, { desc = "Find words by TS" })
 	remap("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Find Word" })
 

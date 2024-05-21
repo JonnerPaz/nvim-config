@@ -1,7 +1,7 @@
 local ui = {
-	{
+	--[[ {
 		"nvim-lualine/lualine.nvim",
-		event = { "BufReadPost", "BufNewFile" },
+		event = "BufEnter",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 			config = function()
@@ -9,6 +9,11 @@ local ui = {
 			end,
 		},
 		config = require("ui.lualine"),
+	}, ]]
+	{
+		"tjdevries/express_line.nvim",
+		dependencies = "nvim-lua/plenary.nvim",
+		config = require("ui.express-line"),
 	},
 	{
 		"NvChad/nvim-colorizer.lua", -- Add colors to words, blue
@@ -18,6 +23,7 @@ local ui = {
 	},
 	{
 		"folke/todo-comments.nvim",
+		cmd = "TodoTelescope",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = require("ui.todo-comments"),
 	},

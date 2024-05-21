@@ -43,7 +43,7 @@ return {
 	},
 	{
 		"stevearc/conform.nvim",
-		event = { "BufReadPre", "BufNewFile" },
+		event = { "BufReadPost", "BufNewFile" },
 		config = require("lsp.conform"),
 	},
 }
