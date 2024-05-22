@@ -38,7 +38,7 @@ return {
 		config = require("tools.fugitive"),
 		cmd = "Git",
 	},
-	{ "sindrets/diffview.nvim" },
+	{ "sindrets/diffview.nvim", config = require("tools.diffview") },
 	--[[ {
 		"nvim-tree/nvim-tree.lua", -- Tree
 		config = require("tools.tree"),

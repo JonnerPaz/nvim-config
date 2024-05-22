@@ -46,4 +46,5 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 		config = require("lsp.conform"),
 	},
+	{ "folke/neodev.nvim" },
 }

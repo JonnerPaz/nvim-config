@@ -47,7 +47,7 @@ return function()
 			scroll_up = "<c-u>", -- binding to scroll up inside the popup
 		},
 		window = {
-			border = "single", -- none, single, double, shadow
+			border = "double", -- none, single, double, shadow
 			position = "bottom", -- bottom, top
 			margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]. When between 0 and 1, will be treated as a percentage of the screen size.
 			padding = { 1, 2, 1, 2 }, -- extra window padding [top, right, bottom, left]
@@ -120,7 +120,6 @@ return function()
 		},
 		z = {
 			name = "zen",
-			-- z = { "<cmd>vim.cmd.UndotreeToggle<cr>", "Hacker Mode" },
 		},
 	}
 

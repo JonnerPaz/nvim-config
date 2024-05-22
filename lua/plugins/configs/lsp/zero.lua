@@ -1,15 +1,14 @@
 return function()
 	local lsp_zero = require("lsp-zero")
 	local lspconfig = require("lspconfig")
+	local neodev = require("neodev")
 	local cmp = require("cmp")
 	local cmp_select = { behavior = cmp.SelectBehavior.Select }
 	local lsp_defaults = lspconfig.util.default_config
 	lsp_defaults.capabilities =
 		vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-	-- folding capabilities
-	lsp_defaults.capabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
-
+	-- Start zero declaration
 	lsp_zero.on_attach(function(client, bufnr)
 		local opts = function(desc)
 			return { noremap = true, silent = true, buffer = bufnr, desc = desc }
@@ -29,8 +28,11 @@ return function()
 		bind("n", "]d", vim.diagnostic.goto_prev, opts("Go prev diagnostic"))
 	end)
 
-	require("mason").setup({})
+	-- Improves lua lsp server (needs to be called before lspconfig)
+	neodev.setup()
 
+	-- Set up mason and lspconfig
+	require("mason").setup({})
 	require("mason-lspconfig").setup({
 		ensure_installed = {
 			"tsserver",
@@ -40,12 +42,21 @@ return function()
 			"lua_ls",
 			"emmet_language_server",
 		},
-
 		handlers = {
 			lsp_zero.default_setup,
 			lua_ls = function()
-				local lua_opts = lsp_zero.nvim_lua_ls()
-				lspconfig.lua_ls.setup(lua_opts)
+				-- local lua_opts = lsp_zero.nvim_lua_ls()
+				lspconfig.lua_ls.setup({
+					capabilities = lsp_defaults.capabilities,
+					on_attach = lsp_zero.on_attach,
+					settings = {
+						Lua = {
+							completion = {
+								callSnipped = "Replace",
+							},
+						},
+					},
+				})
 			end,
 			html = function()
 				lspconfig["html"].setup({
@@ -77,19 +88,20 @@ return function()
 					single_file_support = true,
 				})
 			end,
-			eslint = function()
+			--[[ eslint = function()
 				lspconfig["eslint"].setup({
 					capabilities = lsp_defaults.capabilities,
 					on_attach = lsp_zero.on_attach,
 					single_file_support = true,
 				})
-			end,
+			end, ]]
 			emmet_language_server = function()
 				lspconfig.emmet_language_server.setup({})
 			end,
 		},
 	})
 
+	-- Starts up lsp servers
 	lsp_zero.setup()
 
 	vim.diagnostic.config({
