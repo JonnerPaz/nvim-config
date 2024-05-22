@@ -45,10 +45,10 @@ return function()
 		handlers = {
 			lsp_zero.default_setup,
 			lua_ls = function()
-				-- local lua_opts = lsp_zero.nvim_lua_ls()
 				lspconfig.lua_ls.setup({
-					capabilities = lsp_defaults.capabilities,
-					on_attach = lsp_zero.on_attach,
+					--[[ capabilities = lsp_defaults.capabilities,
+					on_attach = lsp_zero.on_attach, ]]
+					lua_opts = lsp_zero.nvim_lua_ls(),
 					settings = {
 						Lua = {
 							completion = {

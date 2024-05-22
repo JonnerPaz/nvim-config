@@ -18,7 +18,7 @@ return {
 		config = require("tools.trouble"),
 	},
 	{
-		"numToStr/Comment.nvim", -- Comments
+		"numToStr/Comment.nvim",
 		config = require("tools.comment"),
 	},
 	{
