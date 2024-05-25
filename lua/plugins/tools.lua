@@ -50,5 +50,7 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = require("tools.oil"),
 	},
-	"RRethy/vim-illuminate", -- Show words references
+	{
+		"RRethy/vim-illuminate",
+	},
 }

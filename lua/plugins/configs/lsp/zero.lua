@@ -1,7 +1,6 @@
 return function()
 	local lsp_zero = require("lsp-zero")
 	local lspconfig = require("lspconfig")
-	local neodev = require("neodev")
 	local cmp = require("cmp")
 	local cmp_select = { behavior = cmp.SelectBehavior.Select }
 	local lsp_defaults = lspconfig.util.default_config
@@ -28,9 +27,6 @@ return function()
 		bind("n", "]d", vim.diagnostic.goto_prev, opts("Go prev diagnostic"))
 	end)
 
-	-- Improves lua lsp server (needs to be called before lspconfig)
-	neodev.setup()
-
 	-- Set up mason and lspconfig
 	require("mason").setup({})
 	require("mason-lspconfig").setup({
@@ -46,13 +42,23 @@ return function()
 			lsp_zero.default_setup,
 			lua_ls = function()
 				lspconfig.lua_ls.setup({
-					--[[ capabilities = lsp_defaults.capabilities,
-					on_attach = lsp_zero.on_attach, ]]
 					lua_opts = lsp_zero.nvim_lua_ls(),
 					settings = {
 						Lua = {
+							-- make the language server recognize "vim" global
+							diagnostics = {
+								globals = { "vim" },
+								disable = { "missing-fields" },
+							},
+							workspace = {
+								-- make the language server aware of runtime files
+								library = {
+									[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+									[vim.fn.stdpath("config") .. "/lua"] = true,
+								},
+							},
 							completion = {
-								callSnipped = "Replace",
+								callSnippet = "Replace",
 							},
 						},
 					},

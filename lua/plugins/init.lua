@@ -5,7 +5,11 @@ local themes = require("plugins.themes")
 
 local plugins = { lsp, ui, tools, themes }
 
-require("lazy").setup(plugins)
+require("lazy").setup(plugins, {
+	ui = {
+		border = "single",
+	},
+})
 require("plugins.misc")
 
-vim.cmd.colorscheme("rose-pine")
+vim.cmd.colorscheme("ayu")
