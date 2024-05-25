@@ -21,6 +21,10 @@ return {
 							})
 						end,
 					},
+					{
+						"j-hui/fidget.nvim",
+						config = require("lsp.fidget"),
+					},
 				},
 			},
 			-- Autocompletion
@@ -46,5 +50,5 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 		config = require("lsp.conform"),
 	},
-	{ "folke/neodev.nvim" },
+	{ "folke/neodev.nvim", config = true },
 }
