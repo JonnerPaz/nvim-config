@@ -2,10 +2,22 @@ return function()
 	local cmp = require("cmp")
 	local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
-	vim.diagnostic.config({
-		virtual_text = true,
+	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+		border = "rounded",
 	})
 
+	vim.diagnostic.config({
+		signs = true,
+		underline = true,
+		virtual_text = true,
+		update_in_insert = true,
+		float = {
+			-- UI.
+			-- header = false,
+			border = "rounded",
+			focusable = true,
+		},
+	})
 	-- import luasnip plugin safely
 	local luasnip_status, luasnip = pcall(require, "luasnip")
 	if not luasnip_status then

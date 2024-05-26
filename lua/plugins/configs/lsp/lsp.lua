@@ -112,6 +112,7 @@ function prev_config()
 
 	vim.diagnostic.config({
 		virtual_text = true,
+		float = { border = "rounded" },
 	})
 
 	-- import luasnip plugin safely
