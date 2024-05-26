@@ -12,4 +12,4 @@ require("lazy").setup(plugins, {
 })
 require("plugins.misc")
 
-vim.cmd.colorscheme("ayu")
+vim.cmd.colorscheme("moonfly")

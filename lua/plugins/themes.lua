@@ -23,4 +23,5 @@ return {
 	{ "EdenEast/nightfox.nvim" },
 	{ "rose-pine/neovim", name = "rose-pine" },
 	{ "Shatur/neovim-ayu" },
+	{ "bluz71/vim-moonfly-colors", name = "moonfly" },
 }
