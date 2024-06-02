@@ -29,12 +29,10 @@ return function()
 	remap("n", "<leader>fb", builtin.buffers, { desc = "Find by Buffers" })
 	remap("n", "<leader>fc", builtin.commands, { desc = "Find Commands" })
 	remap("n", "<leader>fh", builtin.help_tags, { desc = "Find help tags" })
-	remap("n", "<leader>fo", builtin.vim_options, { desc = "Find vim options" })
 	remap("n", "<leader>fe", builtin.autocommands, { desc = "Find Autocommands/Events" })
 	remap("n", "<leader>ft", builtin.colorscheme, { desc = "Find Colorschemes" })
 	remap("n", "<leader>fk", builtin.keymaps, { desc = "Find Keymaps" })
-	remap("n", "<leader>fl", builtin.treesitter, { desc = "Find words by TS" })
-	remap("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Find Word" })
+	remap("n", "<leader>fd", builtin.diagnostics, { desc = "Find diagnostics" })
 
 	--[[ vim.keymap.set("n", "<leader>fg", function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") }) -- search given word on each file
