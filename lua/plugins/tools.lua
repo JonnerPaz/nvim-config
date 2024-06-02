@@ -13,11 +13,6 @@ return {
 		config = require("tools.harpoon"),
 	},
 	{
-		"folke/trouble.nvim",
-		dependencies = "nvim-tree/nvim-web-devicons",
-		config = require("tools.trouble"),
-	},
-	{
 		"numToStr/Comment.nvim",
 		config = require("tools.comment"),
 	},

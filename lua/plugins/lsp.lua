@@ -2,7 +2,6 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			"folke/neodev.nvim",
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -15,6 +14,14 @@ return {
 
 			-- Schema information
 			"b0o/SchemaStore.nvim",
+			{
+				"folke/lazydev.nvim",
+				ft = "lua", -- only load on lua files
+				opts = {
+					library = { "luvit-meta/library" },
+				},
+			},
+			{ "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
 		},
 		config = require("plugins.configs.lsp.lsp"),
 	},
@@ -38,6 +45,6 @@ return {
 	{
 		"stevearc/conform.nvim",
 		event = { "BufReadPost", "BufNewFile" },
-		config = require("lsp.conform"),
+		config = require("plugins.configs.lsp.conform"),
 	},
 }
