@@ -37,5 +37,11 @@ local ui = {
 		config = require("ui.zen"),
 		event = "VeryLazy",
 	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		event = "VeryLazy",
+		config = require("plugins.configs.ui.ibl"),
+	},
 }
 return ui
