@@ -7,6 +7,10 @@ return function()
 			typescript = { { "prettierd", "prettier" } },
 			javascriptreact = { { "prettierd", "prettier" } },
 			typescriptreact = { { "prettierd", "prettier" } },
+			css = { "prettierd" },
+			html = { "prettierd" },
+			json = { "prettierd" },
+			markdown = { "markdownlint" },
 		},
 		format_on_save = {
 			lsp_fallback = true,

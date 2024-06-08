@@ -27,12 +27,6 @@ return {
 		"mbbill/undotree",
 		config = require("tools.undotree"),
 	},
-	{
-		-- Git integration
-		"tpope/vim-fugitive",
-		config = require("tools.fugitive"),
-		cmd = "Git",
-	},
 	{ "sindrets/diffview.nvim", config = require("tools.diffview") },
 	--[[ {
 		"nvim-tree/nvim-tree.lua", -- Tree

@@ -43,8 +43,15 @@ return {
 		config = require("plugins.configs.lsp.cmp"),
 	},
 	{
+		-- Formatter
 		"stevearc/conform.nvim",
 		event = { "BufReadPost", "BufNewFile" },
 		config = require("plugins.configs.lsp.conform"),
+	},
+	{
+		-- Linter
+		"mfussenegger/nvim-lint",
+		event = { "BufReadPre", "BufNewFile" },
+		config = require("plugins.configs.lsp.linter"),
 	},
 }

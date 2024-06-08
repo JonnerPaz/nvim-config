@@ -8,6 +8,8 @@ return function()
 		tsserver = true,
 		html = true,
 		cssls = true,
+		marksman = true,
+		emmet_language_server = true,
 
 		lua_ls = {
 			settings = {
@@ -31,8 +33,6 @@ return function()
 			},
 		},
 
-		emmet_language_server = true,
-
 		jsonls = {
 			settings = {
 				json = {
@@ -47,17 +47,16 @@ return function()
 	-- installs it manually in mason
 	-- if not just return default config
 	local servers_to_install = vim.tbl_filter(function(key)
-		local t = servers[key]
-		if type(t) == "table" then
-			return not t.manual_install
+		local tbl = servers[key]
+		if type(tbl) == "table" then
+			return not tbl.manual_install
 		else
-			return t
+			return tbl
 		end
 	end, vim.tbl_keys(servers))
 
 	local ensure_installed = {
 		"tsserver",
-		"eslint",
 		"html",
 		"cssls",
 		"lua_ls",
@@ -68,7 +67,6 @@ return function()
 	-- one tbl, which is ensure_installed
 	vim.list_extend(ensure_installed, servers_to_install)
 
-	-- require("neodev").setup()
 	require("mason").setup()
 	require("mason-tool-installer").setup({
 		ensure_installed = ensure_installed,
