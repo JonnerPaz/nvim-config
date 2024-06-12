@@ -46,8 +46,8 @@ return function()
 	-- inspect servers and if it has config
 	-- installs it manually in mason
 	-- if not just return default config
-	local servers_to_install = vim.tbl_filter(function(key)
-		local tbl = servers[key]
+	local servers_to_install = vim.tbl_filter(function(server_key)
+		local tbl = servers[server_key]
 		if type(tbl) == "table" then
 			return not tbl.manual_install
 		else

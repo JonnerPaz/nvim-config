@@ -1,26 +1,20 @@
-# Configuración de neovim
+# Neovim configuration file
 
 <!--toc:start-->
 
 - [Configuración de neovim](#configuración-de-neovim)
-  - [Requisitos](#requisitos)
-  - [Estructura de plugins](#estructura-de-plugins)
-  - [Uso](#uso)
+  - [Requirements](#requirements)
+  - [Plugins' structure](#plugins-structure)
   <!--toc:end-->
 
-Archivo de configuración de neovim basado 100% en lua. Para la realización de este archivo se tomó
-como inspiración el video de [ThePrimeagen](https://www.youtube.com/watch?v=w7i4amO_zaE)
+My own Neovim configuration file written 100% in lua. Sometimes it makes me quit using it, but it is fun tho.
 
-## Requisitos
+## Requirements
 
-- Neovim >= 0.9
+- Neovim >= 0.10
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
-- Node instalado
-  - Paquetes:
-    - Prettier <code>npm i -g prettier</code>
-    - stylua <code>cargo install stylua</code>
 
-## Estructura de plugins
+## Plugins' structure
 
 ```
 .
@@ -70,9 +64,3 @@ como inspiración el video de [ThePrimeagen](https://www.youtube.com/watch?v=w7i
 └── utils
     └── formatting
 ```
-
-## Uso
-
-El archivo de configuración debe estar ubicado en sistemas unix en <code>~/.config/nvim/</code>.
-Una vez que se haya ubicado, usar neovim y se instalarán automáticamente todos los paquetes
-necesarios.

@@ -12,11 +12,19 @@ return function()
 			json = { "prettierd" },
 			markdown = { "markdownlint" },
 		},
-		format_on_save = {
-			lsp_fallback = true,
-			async = false,
-			timeout_ms = 500,
-		},
+		format_on_save = function(bufnr)
+			-- Disable autoformat for files in a certain path
+			local bufname = vim.api.nvim_buf_get_name(bufnr)
+			if bufname:match("/node_modules/") then
+				return
+			end
+
+			return {
+				lsp_fallback = true,
+				async = false,
+				timeout_ms = 500,
+			}
+		end,
 		notify_on_error = true,
 	})
 
