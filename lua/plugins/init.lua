@@ -10,6 +10,5 @@ require("lazy").setup(plugins, {
 		border = "single",
 	},
 })
-require("plugins.misc")
-
-vim.cmd.colorscheme("moonfly")
+-- require("plugins.misc")
+vim.cmd.colorscheme("catppuccin")

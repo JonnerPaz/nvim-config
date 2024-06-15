@@ -42,4 +42,15 @@ return {
 	{
 		"RRethy/vim-illuminate",
 	},
+	{
+		"utilyre/barbecue.nvim",
+		name = "barbecue",
+		version = "*",
+		dependencies = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons", -- optional dependency
+		},
+		event = "VeryLazy",
+		config = require("plugins.configs.tools.barbecue"),
+	},
 }

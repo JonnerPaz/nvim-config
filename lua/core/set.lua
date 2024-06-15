@@ -45,7 +45,7 @@ vim.completeopt = "menuone,noselect"
 vim.timeout = true
 vim.timeoutlen = 300
 -- Makes the line at the middle appear
--- vim.colorcolumn = "80"
+vim.colorcolumn = "80"
 vim.splitright = true
 vim.laststatus = 3
 vim.cmdheight = 1
