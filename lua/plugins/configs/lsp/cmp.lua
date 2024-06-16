@@ -6,6 +6,7 @@ return function()
 		border = "rounded",
 	})
 
+	-- configure ui for cmp
 	vim.diagnostic.config({
 		signs = true,
 		underline = true,
@@ -18,6 +19,7 @@ return function()
 			focusable = true,
 		},
 	})
+
 	-- import luasnip plugin safely
 	local luasnip_status, luasnip = pcall(require, "luasnip")
 	if not luasnip_status then
@@ -58,6 +60,7 @@ return function()
 			{ name = "luasnip" }, -- snippets
 			{ name = "buffer" }, -- text within current buffer
 			{ name = "path" }, -- file system paths
+			{ name = "lazydev", group_index = 0 }, -- lazydev
 		},
 		mapping = cmp_mappings,
 		formatting = {

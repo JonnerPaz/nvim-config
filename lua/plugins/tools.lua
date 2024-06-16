@@ -6,7 +6,11 @@ return {
 		dependencies = { { "nvim-lua/plenary.nvim" } },
 		config = require("tools.telescope"),
 	},
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", config = require("tools.treesitter") },
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		config = require("tools.treesitter"),
+	},
 	{
 		"ThePrimeagen/harpoon",
 		event = "BufEnter",
@@ -18,16 +22,23 @@ return {
 	},
 	{
 		"windwp/nvim-ts-autotag",
+		event = "LspAttach",
 		config = require("tools.autotag"),
 	},
 	{
 		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
 	},
 	{
 		"mbbill/undotree",
 		config = require("tools.undotree"),
 	},
-	{ "sindrets/diffview.nvim", config = require("tools.diffview") },
+	{
+		"sindrets/diffview.nvim",
+		config = require("tools.diffview"),
+		cmd = "DiffViewOpen",
+	},
 	--[[ {
 		"nvim-tree/nvim-tree.lua", -- Tree
 		config = require("tools.tree"),
@@ -41,16 +52,5 @@ return {
 	},
 	{
 		"RRethy/vim-illuminate",
-	},
-	{
-		"utilyre/barbecue.nvim",
-		name = "barbecue",
-		version = "*",
-		dependencies = {
-			"SmiteshP/nvim-navic",
-			"nvim-tree/nvim-web-devicons", -- optional dependency
-		},
-		event = "VeryLazy",
-		config = require("plugins.configs.tools.barbecue"),
 	},
 }

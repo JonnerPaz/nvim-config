@@ -36,7 +36,7 @@ return function()
 			enable = true,
 		},
 		rainbow = {
-			enable = true,
+			enable = false,
 			extended_mode = true,
 		},
 		-- from the ts-autotag plugin
