@@ -1,7 +1,7 @@
 return function()
 	return require("ibl").setup({
 		debounce = 100,
-		indent = { char = "│" },
+		indent = { char = "|" },
 		-- whitespace = { highlight = { "Whitespace", "NonText" } },
 		scope = {
 			show_exact_scope = true,

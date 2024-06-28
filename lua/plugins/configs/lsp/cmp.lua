@@ -12,6 +12,7 @@ return function()
 		underline = true,
 		virtual_text = true,
 		update_in_insert = true,
+		severity_sort = true,
 		float = {
 			-- UI.
 			-- header = false,

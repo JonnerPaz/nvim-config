@@ -11,6 +11,7 @@ return function()
 			html = { "prettierd" },
 			json = { "prettierd" },
 			markdown = { "markdownlint" },
+			yaml = { "yamlfix" },
 		},
 		format_on_save = function(bufnr)
 			-- Disable autoformat for files in a certain path
