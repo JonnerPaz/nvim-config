@@ -27,6 +27,7 @@ vim.undofile = true
 -- Search text options
 vim.hlsearch = false
 vim.incsearch = true
+vim.inccommand = "split"
 
 vim.termguicolors = true
 
@@ -36,7 +37,7 @@ vim.isfname:append("@-@")
 
 vim.updatetime = 50
 -- Ignore case in search patterns
-vim.smartcase = true
+vim.smartcase = true -- case matters if using capital at start
 vim.ignorecase = true
 
 -- Set completeopt to have a better completion experience
@@ -46,6 +47,7 @@ vim.timeout = true
 vim.timeoutlen = 300
 -- Makes the line at the middle appear
 vim.colorcolumn = "80"
+vim.splitbelow = true
 vim.splitright = true
 vim.laststatus = 3
 vim.cmdheight = 1
