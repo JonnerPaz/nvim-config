@@ -5,13 +5,10 @@ return function()
 	end
 
 	local servers = {
-		clangd = true,
 		tsserver = true,
 		html = true,
 		cssls = true,
-		marksman = true,
 		emmet_language_server = true,
-		yamlls = true,
 
 		lua_ls = {
 			settings = {
