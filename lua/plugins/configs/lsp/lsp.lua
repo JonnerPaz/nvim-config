@@ -9,6 +9,7 @@ return function()
 		html = true,
 		cssls = true,
 		emmet_language_server = true,
+		bashls = true,
 
 		lua_ls = {
 			settings = {
