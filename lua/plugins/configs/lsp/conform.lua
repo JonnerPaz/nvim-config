@@ -11,10 +11,34 @@ return function()
 	conform.setup({
 		formatters_by_ft = {
 			lua = { "stylua" },
-			javascript = { { "prettierd", "prettier" } },
-			typescript = { { "prettierd", "prettier" } },
-			javascriptreact = { { "prettierd", "prettier" } },
-			typescriptreact = { { "prettierd", "prettier" } },
+			javascript = {
+				"prettierd",
+				"prettier",
+				stop_after_first = true,
+				async = false,
+				timeout_ms = 500,
+			},
+			typescript = {
+				"prettierd",
+				"prettier",
+				stop_after_first = true,
+				async = false,
+				timeout_ms = 500,
+			},
+			javascriptreact = {
+				"prettierd",
+				"prettier",
+				stop_after_first = true,
+				async = false,
+				timeout_ms = 500,
+			},
+			typescriptreact = {
+				"prettierd",
+				"prettier",
+				stop_after_first = true,
+				async = false,
+				timeout_ms = 500,
+			},
 			css = { "prettierd" },
 			html = { "prettierd" },
 			json = { "prettierd" },
@@ -26,12 +50,12 @@ return function()
 				return
 			end
 
-			return format_opts
+			conform.format()
 		end,
 		notify_on_error = true,
 	})
 
 	vim.keymap.set({ "n", "v" }, "<leader>lf", function()
-		conform.format(format_opts)
+		conform.format()
 	end, { desc = "Format file baby" })
 end

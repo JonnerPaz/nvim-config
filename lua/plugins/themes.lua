@@ -8,17 +8,10 @@ return {
 	{
 		"navarasu/onedark.nvim",
 		config = require("themes.onedark"),
-		lazy = true,
-	},
-	{
-		"rebelot/kanagawa.nvim",
-		config = require("themes.kanagawa"),
-		lazy = true,
 	},
 	{
 		"folke/tokyonight.nvim",
-		-- priority = 1000,
-		lazy = true,
+		priority = 1000,
 	},
 	{ "EdenEast/nightfox.nvim" },
 	{ "rose-pine/neovim", name = "rose-pine" },
