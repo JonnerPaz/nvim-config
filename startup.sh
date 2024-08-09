@@ -7,7 +7,6 @@ nvim_downloader() {
   tar -xf nvim-linux64.tar.gz
 }
 
-# -o same as ||
 if [ -d ~/descargas/ ] || [ -d ~/downloads/ ]; then
   cd ~/descargas/ || cd ~/downloads/ || exit 1
 else
