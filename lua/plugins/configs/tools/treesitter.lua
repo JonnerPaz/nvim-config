@@ -6,6 +6,7 @@ return function()
 			"typescript",
 			"lua",
 			"vim",
+			"http",
 			"vimdoc",
 			"query",
 			"markdown",

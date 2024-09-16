@@ -53,4 +53,8 @@ return {
 	{
 		"RRethy/vim-illuminate",
 	},
+	{
+		-- api testing
+		"rest-nvim/rest.nvim",
+	},
 }

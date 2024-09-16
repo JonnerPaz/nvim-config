@@ -16,4 +16,5 @@ return {
 	{ "EdenEast/nightfox.nvim" },
 	{ "rose-pine/neovim", name = "rose-pine" },
 	{ "bluz71/vim-moonfly-colors", name = "moonfly" },
+	{ "ellisonleao/gruvbox.nvim", config = true },
 }
