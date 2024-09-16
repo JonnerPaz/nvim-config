@@ -5,7 +5,7 @@ return function()
 	end
 
 	local servers = {
-		tsserver = true,
+		ts_ls = true,
 		html = true,
 		cssls = true,
 		emmet_language_server = true,
@@ -56,7 +56,7 @@ return function()
 	end, vim.tbl_keys(servers))
 
 	local ensure_installed = {
-		"tsserver",
+		"ts_ls",
 		"html",
 		"cssls",
 		"lua_ls",
