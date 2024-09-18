@@ -3,6 +3,8 @@ return function()
 
 	linter.linters_by_ft = {
 		bash = { "shellcheck" },
+		typescript = { "eslint_d" },
+		javascript = { "eslint_d" },
 	}
 
 	vim.api.nvim_create_autocmd({ "BufWritePost" }, {

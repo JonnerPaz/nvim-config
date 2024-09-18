@@ -36,17 +36,12 @@ return {
 	},
 	{
 		"sindrets/diffview.nvim",
+		lazy = true,
 		config = require("tools.diffview"),
 		cmd = "DiffViewOpen",
 	},
-	--[[ {
-		"nvim-tree/nvim-tree.lua", -- Tree
-		config = require("tools.tree"),
-	}, ]]
 	{
 		"stevearc/oil.nvim",
-		opts = {},
-		-- Optional dependencies
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = require("tools.oil"),
 	},

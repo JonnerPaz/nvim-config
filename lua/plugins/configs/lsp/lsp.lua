@@ -1,4 +1,19 @@
 return function()
+	-- configure ui for cmp
+	vim.diagnostic.config({
+		signs = true,
+		underline = true,
+		virtual_text = true,
+		update_in_insert = true,
+		severity_sort = true,
+		float = {
+			-- UI.
+			-- header = false,
+			border = "rounded",
+			focusable = true,
+		},
+	})
+
 	local capabilities = nil
 	if pcall(require, "cmp_nvim_lsp") then
 		capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -56,7 +71,6 @@ return function()
 	end, vim.tbl_keys(servers))
 
 	local ensure_installed = {
-		"ts_ls",
 		"html",
 		"cssls",
 		"lua_ls",

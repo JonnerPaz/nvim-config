@@ -6,28 +6,11 @@ return function()
 		border = "rounded",
 	})
 
-	-- configure ui for cmp
-	vim.diagnostic.config({
-		signs = true,
-		underline = true,
-		virtual_text = true,
-		update_in_insert = true,
-		severity_sort = true,
-		float = {
-			-- UI.
-			-- header = false,
-			border = "rounded",
-			focusable = true,
-		},
-	})
-
-	-- import luasnip plugin safely
 	local luasnip_status, luasnip = pcall(require, "luasnip")
 	if not luasnip_status then
 		return
 	end
 
-	-- import lspkind plugin safely
 	local lspkind_status, lspkind = pcall(require, "lspkind")
 	if not lspkind_status then
 		return
