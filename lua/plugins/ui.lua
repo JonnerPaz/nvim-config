@@ -29,7 +29,10 @@ local ui = {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
-		event = "VeryLazy",
+		keys = {
+			{ "<leader>ti", "<cmd>IBLToggle<cr>", desc = "IBL Toggle" },
+		},
+		-- event = "VeryLazy",
 		config = require("plugins.configs.ui.ibl"),
 	},
 }

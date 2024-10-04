@@ -11,4 +11,4 @@ require("lazy").setup(plugins, {
 	},
 })
 -- require("plugins.misc")
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("posterpole")
