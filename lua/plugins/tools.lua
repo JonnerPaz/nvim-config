@@ -48,8 +48,19 @@ return {
 	{
 		"RRethy/vim-illuminate",
 	},
+	-- makes writing markdown in neovim better
 	{
-		-- api testing
-		"rest-nvim/rest.nvim",
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+		config = require("tools.render-markdown"),
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && yarn install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
 	},
 }
