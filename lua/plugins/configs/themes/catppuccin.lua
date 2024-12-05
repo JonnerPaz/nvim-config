@@ -1,6 +1,6 @@
 -- Setting up catppucin config
 return function()
-	require("catppuccin").setup({
+	return require("catppuccin").setup({
 		flavour = "mocha", -- latte, frappe, macchiato, mocha
 		background = {
 			-- :h background
