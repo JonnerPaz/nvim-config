@@ -6,6 +6,6 @@ return {
 		config = require("themes.catppuccin"),
 	},
 	{ "bluz71/vim-moonfly-colors", name = "moonfly" },
-	{ "dgox16/oldworld.nvim" },
-	{ "ilof2/posterpole.nvim", config = require("themes.posterpole") },
+	"dgox16/oldworld.nvim",
+	{ "rebelot/kanagawa.nvim", config = require("plugins.configs.themes.kanagawa") },
 }
