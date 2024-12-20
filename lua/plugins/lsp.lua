@@ -41,6 +41,13 @@ return {
 		config = require("plugins.configs.lsp.cmp"),
 	},
 	{
+		"zbirenbaum/copilot-cmp",
+		config = function()
+			require("copilot_cmp").setup()
+		end,
+	},
+
+	{
 		-- Formatter
 		"stevearc/conform.nvim",
 		event = "LspAttach",

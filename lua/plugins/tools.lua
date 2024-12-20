@@ -63,4 +63,10 @@ return {
 		end,
 		ft = { "markdown" },
 	},
+	{
+		"zbirenbaum/copilot.lua",
+		config = function()
+			require("copilot").setup()
+		end,
+	},
 }
