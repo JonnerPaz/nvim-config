@@ -54,5 +54,5 @@ return {
 		config = require("plugins.configs.lsp.conform"),
 	},
 	-- Linter
-	{ "mfussenegger/nvim-lint" },
+	{ "mfussenegger/nvim-lint", config = require("plugins.configs.lsp.lint") },
 }

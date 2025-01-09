@@ -21,18 +21,19 @@ return function()
 
 	local builtin = require("telescope.builtin")
 
-	vim.keymap.set("n", "<leader>ff", function()
+	vim.keymap.set("n", "<leader>f", function()
 		builtin.find_files({ hidden = true, no_ignore = true })
 	end, { desc = "Find by Files" }) -- Generic fuzzy search
 	local remap = vim.keymap.set
-	remap("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
-	remap("n", "<leader>fb", builtin.buffers, { desc = "Find by Buffers" })
-	remap("n", "<leader>fc", builtin.commands, { desc = "Find Commands" })
-	remap("n", "<leader>fh", builtin.help_tags, { desc = "Find help tags" })
-	remap("n", "<leader>fe", builtin.autocommands, { desc = "Find Autocommands/Events" })
-	remap("n", "<leader>ft", builtin.colorscheme, { desc = "Find Colorschemes" })
-	remap("n", "<leader>fk", builtin.keymaps, { desc = "Find Keymaps" })
-	remap("n", "<leader>fd", builtin.diagnostics, { desc = "Find diagnostics" })
+
+	remap("n", "<leader>dg", builtin.live_grep, { desc = "Live grep" })
+	remap("n", "<leader>db", builtin.buffers, { desc = "Find by Buffers" })
+	remap("n", "<leader>dc", builtin.commands, { desc = "Find Commands" })
+	remap("n", "<leader>dh", builtin.help_tags, { desc = "Find help tags" })
+	remap("n", "<leader>de", builtin.autocommands, { desc = "Find Autocommands/Events" })
+	remap("n", "<leader>dt", builtin.colorscheme, { desc = "Find Colorschemes" })
+	remap("n", "<leader>dk", builtin.keymaps, { desc = "Find Keymaps" })
+	remap("n", "<leader>df", builtin.diagnostics, { desc = "Find diagnostics" })
 
 	--[[ vim.keymap.set("n", "<leader>fg", function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") }) -- search given word on each file

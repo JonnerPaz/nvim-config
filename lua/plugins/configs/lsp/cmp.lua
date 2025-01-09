@@ -41,10 +41,11 @@ return function()
 		},
 		sources = {
 			{ name = "nvim_lsp" }, -- lsp
-			{ name = "copilot" }, -- copilot
+			-- { name = "copilot" }, -- copilot
 			{ name = "luasnip" }, -- snippets
 			{ name = "buffer" }, -- text within current buffer
 			{ name = "path" }, -- file system paths
+			{ name = "codeium" }, -- codeium
 			{ name = "lazydev", group_index = 0 }, -- lazydev
 		},
 		mapping = cmp_mappings,
@@ -54,7 +55,7 @@ return function()
 				mode = "symbol_text",
 				maxwidth = 70, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 				ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-				symbol_map = { Copilot = "" },
+				symbol_map = { Codeium = " " },
 			}),
 		},
 	})
