@@ -33,6 +33,7 @@ return {
 	{
 		"mbbill/undotree",
 		config = require("tools.undotree"),
+		event = "LspAttach",
 	},
 	{
 		"sindrets/diffview.nvim",
@@ -47,12 +48,14 @@ return {
 	},
 	{
 		"RRethy/vim-illuminate",
+		event = "VeryLazy",
 	},
 	-- makes writing markdown in neovim better
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
 		config = require("tools.render-markdown"),
+		ft = { "markdown" },
 	},
 	{
 		"iamcco/markdown-preview.nvim",
@@ -63,10 +66,33 @@ return {
 		end,
 		ft = { "markdown" },
 	},
-	{
+	--[[ {
 		"zbirenbaum/copilot.lua",
 		config = function()
 			require("copilot").setup()
 		end,
+	}, ]]
+	{
+		"Exafunction/codeium.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+		},
+		config = require("plugins.configs.tools.codeium"),
+		event = "BufEnter",
+	},
+	{
+		"smoka7/hop.nvim",
+		opts = {
+			keys = "etovxqpdygfblzhckisuran",
+		},
+		config = require("plugins.configs.tools.hop"),
+		event = "BufEnter",
+	},
+	{
+		"danymat/neogen",
+		config = true,
+		version = "*",
+		event = "LspAttach",
 	},
 }
