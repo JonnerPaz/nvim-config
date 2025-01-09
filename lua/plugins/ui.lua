@@ -1,8 +1,13 @@
 local ui = {
-	{
+	--[[ {
 		"tjdevries/express_line.nvim",
 		dependencies = "nvim-lua/plenary.nvim",
 		config = require("ui.express-line"),
+	}, ]]
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = require("plugins.configs.ui.lualine"),
 	},
 	{
 		"NvChad/nvim-colorizer.lua", -- Add colors to words, blue,
@@ -18,13 +23,13 @@ local ui = {
 	},
 	{
 		"folke/which-key.nvim",
-		config = require("ui.which-key"),
 		event = "VeryLazy",
+		config = require("ui.which-key"),
 	},
 	{
 		"folke/zen-mode.nvim", -- zen mode
-		config = require("ui.zen"),
 		event = "VeryLazy",
+		config = require("ui.zen"),
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -32,8 +37,14 @@ local ui = {
 		keys = {
 			{ "<leader>ti", "<cmd>IBLToggle<cr>", desc = "IBL Toggle" },
 		},
-		-- event = "VeryLazy",
 		config = require("plugins.configs.ui.ibl"),
+	},
+	{
+		"lewis6991/gitsigns.nvim",
+		event = "LspAttach",
+		config = function()
+			require("gitsigns").setup()
+		end,
 	},
 }
 return ui
