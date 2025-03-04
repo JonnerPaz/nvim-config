@@ -25,7 +25,7 @@ return function()
 		notify_on_error = true,
 	})
 
-	vim.keymap.set({ "n", "v" }, "<leader>lf", function()
+	vim.keymap.set({ "n", "v" }, "<leader>l", function()
 		conform.format()
 	end, { desc = "Format file baby" })
 end

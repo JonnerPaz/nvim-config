@@ -26,7 +26,6 @@ return function()
 		return
 	end
 
-	-- make autopairs and completion work together
 	-- Add autopairs completion when confirm it
 	cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 end

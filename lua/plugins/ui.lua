@@ -6,7 +6,6 @@ local ui = {
 	}, ]]
 	{
 		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = require("plugins.configs.ui.lualine"),
 	},
 	{
@@ -31,19 +30,27 @@ local ui = {
 		event = "VeryLazy",
 		config = require("ui.zen"),
 	},
-	{
+	--[[ {
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
 		keys = {
 			{ "<leader>ti", "<cmd>IBLToggle<cr>", desc = "IBL Toggle" },
 		},
 		config = require("plugins.configs.ui.ibl"),
-	},
+	}, ]]
 	{
 		"lewis6991/gitsigns.nvim",
 		event = "LspAttach",
 		config = function()
 			require("gitsigns").setup()
+		end,
+	},
+	{ "stevearc/quicker.nvim" },
+	{
+		"ray-x/lsp_signature.nvim",
+		event = "VeryLazy",
+		config = function(_, opts)
+			require("lsp_signature").setup(opts)
 		end,
 	},
 }

@@ -25,6 +25,7 @@ return function()
 		cssls = true,
 		emmet_language_server = true,
 		bashls = true,
+		tailwindcss = true,
 
 		lua_ls = {
 			settings = {

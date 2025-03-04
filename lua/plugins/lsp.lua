@@ -55,4 +55,13 @@ return {
 	},
 	-- Linter
 	{ "mfussenegger/nvim-lint", config = require("plugins.configs.lsp.lint") },
+	-- tailwind-tools.lua
+	{
+		"luckasRanarison/tailwind-tools.nvim",
+		dependencies = {
+			"tailwind-tools",
+		},
+		name = "tailwind-tools",
+		build = ":UpdateRemotePlugins",
+	},
 }
