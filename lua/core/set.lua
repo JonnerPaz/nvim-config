@@ -1,58 +1,56 @@
 vim.g.snippets = "luasnip"
 
-local vim = vim.opt
+local set = vim.o
 -- Makes cursor big when typing
-vim.guicursor = ""
+set.guicursor = ""
+-- set.winborder = "rounded"
 
 -- Numbers and relative numbers
-vim.number = true
-vim.relativenumber = true
+set.number = true
+set.relativenumber = true
 
 -- Indentation
-vim.tabstop = 2
-vim.softtabstop = 2
-vim.shiftwidth = 2
-vim.expandtab = true
-vim.smartindent = true
+set.tabstop = 4
+-- vim.softtabstop = 2
+set.shiftwidth = 4
+set.expandtab = true
+set.smartindent = true
 
 -- Lines won't wrap when splitting windows
-vim.wrap = false
+set.wrap = false
 
 -- Get rid of swap file and backups
-vim.swapfile = false
-vim.backup = false
-vim.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.undofile = true
+set.swapfile = false
+set.backup = false
+set.undodir = os.getenv("HOME") .. "/.vim/undodir"
+set.undofile = true
 
 -- Search text options
-vim.hlsearch = false
-vim.incsearch = true
-vim.inccommand = "split"
+set.hlsearch = false
+set.incsearch = true
+set.inccommand = "split"
 
-vim.termguicolors = true
+set.termguicolors = true
 
-vim.scrolloff = 8
-vim.signcolumn = "yes"
-vim.isfname:append("@-@")
+set.scrolloff = 8
+set.signcolumn = "yes"
 
-vim.updatetime = 50
+set.updatetime = 50
 -- Ignore case in search patterns
-vim.smartcase = true -- case matters if using capital at start
-vim.ignorecase = true
+set.smartcase = true -- case matters if using capital at start
+set.ignorecase = true
 
 -- Set completeopt to have a better completion experience
-vim.completeopt = "menuone,noselect"
+set.completeopt = "menuone,noselect"
 
-vim.timeout = true
-vim.timeoutlen = 300
+set.timeout = true
+set.timeoutlen = 300
 -- Makes the line at the middle appear
-vim.colorcolumn = "80"
-vim.splitbelow = true
-vim.splitright = true
-vim.laststatus = 3
-vim.cmdheight = 1
-
-vim.formatoptions:remove("o")
+set.colorcolumn = "80"
+set.splitbelow = true
+set.splitright = true
+set.laststatus = 3
+set.cmdheight = 1
 
 -- folding
 --[[ vim.foldmethod = "indent"

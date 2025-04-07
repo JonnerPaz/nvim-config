@@ -20,4 +20,11 @@ return {
 		name = "rose-pine",
 		config = require("plugins.configs.themes.rose_pine"),
 	},
+	{
+		"vague2k/vague.nvim",
+	},
+
+	{
+		"manas140/conscious",
+	},
 }

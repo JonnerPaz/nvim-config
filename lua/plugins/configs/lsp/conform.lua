@@ -12,6 +12,8 @@ return function()
 			css = { "prettierd" },
 			json = { "prettierd" },
 			sh = { "shellharden" },
+			go = { "gofmt", "gofumpt" },
+			python = { "black" },
 		},
 		format_on_save = function(bufnr)
 			-- Disable autoformat for files in a certain path
@@ -25,7 +27,7 @@ return function()
 		notify_on_error = true,
 	})
 
-	vim.keymap.set({ "n", "v" }, "<leader>l", function()
+	vim.keymap.set({ "n" }, "<leader>l", function()
 		conform.format()
 	end, { desc = "Format file baby" })
 end

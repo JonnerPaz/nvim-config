@@ -6,17 +6,17 @@ return function()
 		virtual_text = true,
 		update_in_insert = true,
 		severity_sort = true,
-		float = {
-			-- UI.
-			-- header = false,
-			border = "rounded",
-			focusable = true,
-		},
 	})
+	vim.o.winborder = single
 
 	local capabilities = nil
 	if pcall(require, "cmp_nvim_lsp") then
 		capabilities = require("cmp_nvim_lsp").default_capabilities()
+	end
+
+	local util = nil
+	if pcall(require, "lspconfig.util") then
+		util = require("lspconfig.util")
 	end
 
 	local servers = {
@@ -26,6 +26,37 @@ return function()
 		emmet_language_server = true,
 		bashls = true,
 		tailwindcss = true,
+		basedpyright = {
+			single_file_support = true,
+			analysis = {
+				diagnosticMode = "openFilesOnly",
+				autoSearchPaths = true,
+				useLibraryCodeForTypes = true,
+				inlayHints = {
+					variableTypes = true,
+					callArgumentNames = true,
+					functionReturnTypes = true,
+					genericTypes = true,
+				},
+			},
+		},
+
+		--[[ gopls = {
+			capabilities = capabilities,
+			cmd = { "gopls" },
+			filetypes = { "go", "gomod", "gowork", "gotmpl" },
+			root_dir = util.root_pattern("go.mod", ".git", "go.work"),
+			gofumpt = true,
+			settings = {
+				gopls = {
+					completeUnimported = true,
+					analyses = {
+						unusedparams = true,
+						unusedwrite = true,
+					},
+				},
+			},
+		}, ]]
 
 		lua_ls = {
 			settings = {
@@ -109,6 +140,7 @@ return function()
 			end
 
 			local bind = vim.keymap.set
+
 			bind("n", "K", vim.lsp.buf.hover, opts("display information on hover"))
 			bind("n", "gd", vim.lsp.buf.definition, opts("Go to definition of symbol under cursor"))
 			bind("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration of symbol under cursor"))
@@ -120,8 +152,6 @@ return function()
 			bind("n", "<F2>", vim.lsp.buf.rename, opts("Rename symbol"))
 			bind("n", "<F3>", vim.lsp.buf.code_action, opts("Code Action"))
 			bind("n", "gl", vim.diagnostic.open_float, opts("Diagnostic float"))
-			bind("n", "[d", vim.diagnostic.goto_next, opts("Go next diagnostic"))
-			bind("n", "]d", vim.diagnostic.goto_prev, opts("Go prev diagnostic"))
 		end,
 	})
 end

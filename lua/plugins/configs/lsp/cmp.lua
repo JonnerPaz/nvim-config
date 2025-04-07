@@ -2,10 +2,6 @@ return function()
 	local cmp = require("cmp")
 	local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
-	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-		border = "rounded",
-	})
-
 	local luasnip_status, luasnip = pcall(require, "luasnip")
 	if not luasnip_status then
 		return

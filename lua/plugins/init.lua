@@ -7,8 +7,9 @@ local plugins = { lsp, ui, tools, themes }
 
 require("lazy").setup(plugins, {
 	ui = {
-		border = "single",
+		border = "rounded",
 	},
 })
+
 -- require("plugins.misc")
 vim.cmd.colorscheme("rose-pine")
