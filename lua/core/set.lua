@@ -3,7 +3,7 @@ vim.g.snippets = "luasnip"
 local set = vim.o
 -- Makes cursor big when typing
 set.guicursor = ""
--- set.winborder = "rounded"
+set.winborder = "rounded"
 
 -- Numbers and relative numbers
 set.number = true
