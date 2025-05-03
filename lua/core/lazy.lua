@@ -25,7 +25,7 @@ require("lazy").setup({
 		border = "rounded",
 	},
 	install = {
-		colorscheme = { "rose-pine" },
+		colorscheme = { "rose-pine-moon" },
 	},
 
 	performance = {

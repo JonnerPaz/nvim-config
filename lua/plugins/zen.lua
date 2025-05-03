@@ -30,6 +30,7 @@ return {
 					enabled = true,
 					ruler = true, -- disables the ruler text in the cmd line area
 					showcmd = false, -- disables the command in the last line of the screen
+					winborder = "none",
 				},
 				twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
 				gitsigns = { enabled = true }, -- disables git signs
