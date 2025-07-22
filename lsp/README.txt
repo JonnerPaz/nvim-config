@@ -1,0 +1,1 @@
+This dir is for creating manual configurations for lspconfig. Most language's configurations are handled automatically by lspconfig itself. If you want to create manual configurations, just create a filename with the lsp server name as its name, and add its configurations

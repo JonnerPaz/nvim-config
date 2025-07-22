@@ -1,5 +1,5 @@
 return {
-	"smoka7/hop.nvim",
+	--[[ "smoka7/hop.nvim",
 	opts = {
 		keys = "etovxqpdygfblzhckisuran",
 	},
@@ -16,5 +16,5 @@ return {
 
 		return require("hop").setup()
 	end,
-	event = "BufEnter",
+	event = "BufEnter", ]]
 }

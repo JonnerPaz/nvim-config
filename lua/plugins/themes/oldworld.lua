@@ -8,7 +8,7 @@ return {
 				functions = { bold = true },
 			},
 			highlight_overrides = {
-				bg = "#000000",
+				-- bg = "#000000",
 			},
 		})
 	end,

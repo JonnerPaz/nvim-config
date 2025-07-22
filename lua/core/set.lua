@@ -11,7 +11,7 @@ set.relativenumber = true
 
 -- Indentation
 set.tabstop = 4
--- vim.softtabstop = 2
+vim.softtabstop = 4
 set.shiftwidth = 4
 set.expandtab = true
 set.smartindent = true
@@ -24,6 +24,7 @@ set.swapfile = false
 set.backup = false
 set.undodir = os.getenv("HOME") .. "/.vim/undodir"
 set.undofile = true
+set.backupcopy = "yes"
 
 -- Search text options
 set.hlsearch = false

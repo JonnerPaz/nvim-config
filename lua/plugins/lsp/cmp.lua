@@ -72,6 +72,14 @@ return {
 			},
 		})
 
+		-- Custom cmp for sql
+		cmp.setup.filetype({ "sql" }, {
+			sources = cmp.config.sources({
+				{ name = "vim-dadbod-completion" },
+				{ name = "buffer" },
+			}),
+		})
+
 		cmp.setup.cmdline("/", {
 			view = {
 				entries = { name = "custom", selection_order = "near_cursor" },

@@ -15,6 +15,7 @@ return {
 				json = { "prettierd" },
 				python = { "black" },
 				cpp = { "clang-format" },
+				sql = { "pg_format" },
 			},
 			format_on_save = function(bufnr)
 				-- Disable autoformat for files in a certain path

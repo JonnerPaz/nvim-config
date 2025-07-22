@@ -31,15 +31,11 @@ return {
 			capabilities = require("cmp_nvim_lsp").default_capabilities()
 		end
 
-		local util = nil
-		if pcall(require, "lspconfig.util") then
-			util = require("lspconfig.util")
-		end
-
 		local servers = {
 			ts_ls = true,
 			html = true,
 			cssls = true,
+			postgres_lsp = true,
 			emmet_language_server = true,
 			tailwindcss = true,
 			clangd = true,
@@ -116,6 +112,23 @@ return {
 			"clangd",
 			"html",
 			"cssls",
+			"black",
+			"clang-format",
+			"codelldb",
+			"cpptools",
+			"css-lsp",
+			"debugpy",
+			"emmet-language-server",
+			"eslint_d",
+			"html-lsp",
+			"json-lsp",
+			"lua-language-server",
+			"pgformatter",
+			"postgrestools",
+			"prettierd",
+			"stylua",
+			"tailwindcss-language-server",
+			"typescript-language-server",
 			"lua_ls",
 			"emmet_language_server",
 		}
@@ -145,7 +158,7 @@ return {
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(args)
 				local bufnr = args.buf
-				local client = assert(vim.lsp.get_client_by_id(args.data.client_id), "must have a valid client")
+				-- local client = assert(vim.lsp.get_client_by_id(args.data.client_id), "must have a valid client")
 				local opts = function(desc)
 					return { noremap = true, silent = true, buffer = bufnr, desc = desc }
 				end
@@ -156,7 +169,7 @@ return {
 				bind("n", "gd", vim.lsp.buf.definition, opts("Go to definition of symbol under cursor"))
 				bind("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration of symbol under cursor"))
 				bind("n", "gi", vim.lsp.buf.implementation, opts("Go to implementation of a symbol"))
-				bind("n", "gt", vim.lsp.buf.type_definition, opts("Go type definition"))
+				-- bind("n", "gt", vim.lsp.buf.type_definition, opts("Go type definition"))
 				bind("n", "gr", vim.lsp.buf.references, opts("Go references"))
 				bind("n", "gs", vim.lsp.buf.signature_help, opts("Go signatures"))
 
