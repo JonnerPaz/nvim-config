@@ -12,17 +12,20 @@ return {
 		local dapui = require("dapui")
 
 		require("mason-nvim-dap").setup({
-			ensure_installed = { "codelldb" },
+			ensure_installed = { "codelldb", "js-debug-adapter" },
 		})
 
+		-- Python debugger --
 		local dappy_status, dappy = pcall(require, "dap-python")
 		if not dappy_status then
 			return
 		else
 			dappy.setup("~/.local/share/nvim/mason/packages/debugpy/venv/bin/python")
 		end
+		-- Python debugger --
 
 		dapui.setup()
+
 		dap.listeners.after.event_initialized["dapui_config"] = function()
 			dapui.open()
 		end
@@ -32,6 +35,31 @@ return {
 		dap.listeners.before.event_exited["dapui_config"] = function()
 			dapui.close()
 		end
+
+		-- js-debug-adapter
+		local js_dap_path = "~/.local/share/nvim/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js"
+		dap.adapters["pwa-node"] = {
+			type = "server",
+			host = "127.0.0.1",
+			port = "8123",
+			executable = {
+				command = "js-debug-adapter",
+				-- args = { js_dap_path, "${port}" },
+			},
+		}
+
+		for _, language in ipairs({ "typescript", "javascript" }) do
+			require("dap").configurations[language] = {
+				{
+					type = "pwa-node",
+					request = "launch",
+					name = "Launch file",
+					program = "${file}",
+					runtimeExecutable = "node",
+				},
+			}
+		end
+		-- js-debug-adapter
 
 		dap.adapters.cppdbg = require("plugins.dap_configs.cppdap").dap.adapters.cppdbg
 		dap.configurations.cpp = require("plugins.dap_configs.cppdap").dap.configurations.cpp

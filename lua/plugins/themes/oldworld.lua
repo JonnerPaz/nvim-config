@@ -3,9 +3,9 @@ return {
 	config = function()
 		return require("oldworld").setup({
 			terminal_colors = true, -- enable terminal colors
+			variant = "oled",
 			styles = {
 				booleans = { bold = true },
-				functions = { bold = true },
 			},
 			highlight_overrides = {
 				-- bg = "#000000",

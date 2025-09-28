@@ -4,6 +4,7 @@ require("core.remap")
 
 -- Bootstrap Lazy.nvim
 require("core.lazy")
--- vim.lsp.enable("clangd")
+require("core.lsp_settings")
+require("core.statusline")
 
-vim.cmd.colorscheme("rose-pine-moon")
+vim.cmd.colorscheme("oldworld")

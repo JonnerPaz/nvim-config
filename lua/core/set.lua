@@ -15,6 +15,7 @@ vim.softtabstop = 4
 set.shiftwidth = 4
 set.expandtab = true
 set.smartindent = true
+set.autoindent = true
 
 -- Lines won't wrap when splitting windows
 set.wrap = false
@@ -30,6 +31,10 @@ set.backupcopy = "yes"
 set.hlsearch = false
 set.incsearch = true
 set.inccommand = "split"
+set.smartcase = true -- case matters if using capital at start
+set.ignorecase = true
+
+-- set.cursorline = true
 
 set.termguicolors = true
 
@@ -37,12 +42,9 @@ set.scrolloff = 8
 set.signcolumn = "yes"
 
 set.updatetime = 50
--- Ignore case in search patterns
-set.smartcase = true -- case matters if using capital at start
-set.ignorecase = true
 
 -- Set completeopt to have a better completion experience
-set.completeopt = "menuone,noselect"
+-- set.completeopt = "menuone,noselect"
 
 set.timeout = true
 set.timeoutlen = 300
@@ -52,6 +54,10 @@ set.splitbelow = true
 set.splitright = true
 set.laststatus = 3
 set.cmdheight = 1
+
+-- clipboard
+set.clipboard = "unnamedplus"
+-- set.clipboard:append("unnamedplus")
 
 -- folding
 --[[ vim.foldmethod = "indent"

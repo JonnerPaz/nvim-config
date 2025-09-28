@@ -21,3 +21,6 @@ remap("n", "<C-Up>", ":resize -2<CR>", opts)
 remap("n", "<C-Down>", ":resize +2<CR>", opts)
 remap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 remap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+
+remap("n", "<leader>s", "<cmd>w<cr>", opts)
+remap("n", "<leader>q", "<cmd>qa<cr>", opts)

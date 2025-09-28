@@ -13,7 +13,7 @@ return {
 				html = { "prettierd" },
 				css = { "prettierd" },
 				json = { "prettierd" },
-				python = { "black" },
+				python = { lsp_format = "prefer", "black", stop_after_first = true },
 				cpp = { "clang-format" },
 				sql = { "pg_format" },
 			},
