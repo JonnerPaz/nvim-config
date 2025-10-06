@@ -6,8 +6,6 @@ return {
 	event = "BufEnter",
 	config = function()
 		require("codeium").setup({
-			enabled_cmp_source = true,
-			enable_chat = true,
 			workspace_root = {
 				use_lsp = true,
 				paths = {
@@ -15,10 +13,12 @@ return {
 					"package.json",
 				},
 			},
+			enable_chat = true,
+			enable_cmp_source = false,
 			virtual_text = {
 				enabled = function()
 					local path = vim.api.nvim_buf_get_name(0)
-					if string.find(path, "oil://", 1, true) == 1 then
+					if string.find(path, "oil", 1, true) == 1 then
 						return false
 					end
 					return true
@@ -28,6 +28,13 @@ return {
 					next = "<M-{>",
 					prev = "<M-}>",
 				},
+				filetypes = {
+					["typescript"] = true,
+					["oil"] = false,
+				},
+				virtual_text_priority = 1000,
+				map_keys = true,
+				default_filetype_enabled = true,
 			},
 		})
 	end,
