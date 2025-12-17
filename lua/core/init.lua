@@ -7,4 +7,4 @@ require("core.lazy")
 require("core.lsp_settings")
 require("core.statusline")
 
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("moonfly")

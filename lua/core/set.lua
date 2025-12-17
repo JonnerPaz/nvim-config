@@ -5,6 +5,9 @@ local set = vim.o
 set.guicursor = ""
 set.winborder = "rounded"
 
+vim.o.cmdheight = 0
+vim.o.cmdwinheight = 1
+
 -- Numbers and relative numbers
 set.number = true
 set.relativenumber = true

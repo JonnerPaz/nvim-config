@@ -2,20 +2,22 @@ return {
 	"saghen/blink.cmp",
 	-- optional: provides snippets for the snippet source
 	event = "LspAttach",
+	version = "1.*",
 	dependencies = {
 		"hrsh7th/nvim-cmp",
+		-- { "L3MON4D3/LuaSnip", version = "v2.*" },
 		"rafamadriz/friendly-snippets",
 		"Exafunction/codeium.nvim",
-		"L3MON4D3/LuaSnip",
 		"onsails/lspkind.nvim",
 		"nvim-tree/nvim-web-devicons",
 	},
 
-	version = "1.*",
-
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
+		enabled = function()
+			return vim.bo.filetype ~= "oil"
+		end,
 		-- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
 		-- 'super-tab' for mappings similar to vscode (tab to accept)
 		-- 'enter' for enter to accept
@@ -96,6 +98,11 @@ return {
 				sql = { "dadbod" },
 			},
 			providers = {
+				snippets = {
+					opts = {
+						friendly_snippets = true,
+					},
+				},
 				dadbod = { module = "vim_dadbod_completion.blink" },
 				lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", score_offset = 100 },
 				codeium = { name = "Codeium", module = "codeium.blink", async = true },
@@ -116,9 +123,9 @@ return {
 			},
 		},
 
-		snippets = { preset = "luasnip" },
-
-		signature = { enabled = true },
+		signature = { enabled = true, window = {
+			show_documentation = false,
+		} },
 
 		-- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
 		-- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,

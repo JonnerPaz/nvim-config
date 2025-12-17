@@ -18,9 +18,11 @@ return {
 			virtual_text = {
 				enabled = function()
 					local path = vim.api.nvim_buf_get_name(0)
-					if string.find(path, "oil", 1, true) == 1 then
+
+					if path.find(path, "oil") == 1 then
 						return false
 					end
+
 					return true
 				end,
 				key_bindings = {
@@ -32,7 +34,7 @@ return {
 					["typescript"] = true,
 					["oil"] = false,
 				},
-				virtual_text_priority = 1000,
+				-- virtual_text_priority = 1000,
 				map_keys = true,
 				default_filetype_enabled = true,
 			},
