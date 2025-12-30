@@ -22,7 +22,9 @@ return {
 			inverse = true, -- invert background for search, diffs, statuslines and errors
 			contrast = "soft", -- can be "hard", "soft" or empty string
 			palette_overrides = {},
-			overrides = {},
+			overrides = {
+				BlinkCmpMenuSelection = { fg = "#121212", bg = "#999999" },
+			},
 			dim_inactive = false,
 			transparent_mode = true,
 		})

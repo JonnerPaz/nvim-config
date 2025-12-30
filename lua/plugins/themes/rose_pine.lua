@@ -75,6 +75,9 @@ return {
 				StatusLineNC = { fg = "subtle", bg = "surface" },
 
 				-- cmp look options
+				BlinkCmpMenuSelection = { fg = "#121212", bg = "#999999" },
+
+				-- cmp look options
 				CurSearch = { fg = "base", bg = "leaf", inherit = false },
 				Search = { fg = "text", bg = "leaf", blend = 20, inherit = false },
 

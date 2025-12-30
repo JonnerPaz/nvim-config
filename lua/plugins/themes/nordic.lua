@@ -17,7 +17,9 @@ return {
 				-- palette.bg_float = palette.white1
 			end,
 			-- This callback can be used to override highlights before they are applied.
-			on_highlight = function(highlights, palette) end,
+			on_highlight = function(highlights, palette)
+				highlights.BlinkCmpMenuSelection = { fg = "#121212", bg = "#999999" }
+			end,
 			-- Enable bold keywords.
 			bold_keywords = false,
 			-- Enable italic comments.
