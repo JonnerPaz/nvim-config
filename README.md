@@ -1,66 +1,25 @@
 # Neovim configuration file
 
 <!--toc:start-->
-
 - [Configuración de neovim](#configuración-de-neovim)
-  - [Requirements](#requirements)
-  - [Plugins' structure](#plugins-structure)
-  <!--toc:end-->
+- [Requirements](#requirements)
+- [Plugins' structure](#plugins-structure)
+<!--toc:end-->
 
 My own Neovim configuration file written 100% in lua. Sometimes it makes me quit using it, but it is fun tho.
 
 ## Requirements
 
-- Neovim >= 0.10
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- Neovim >= 0.11
+- [fnm](https://github.com/Schniz/fnm) - for mason install all LSP server using node
+- [ripgrep](https://github.com/BurntSushi/ripgrep) - Fuzzy finder engine
+- [tree-sitter-cli](https://github.com/tree-sitter/tree-sitter-cli) - Syntax highlighting
+    - You need to have cargo installed
+    - To install it, run `cargo install tree-sitter-cli`
 
-## Plugins' structure
+## Instructions
 
-```
-.
-├── init.lua
-├── lazy-lock.json
-├── lua
-│   ├── core
-│   │   ├── init.lua
-│   │   ├── lazy.lua
-│   │   ├── remap.lua
-│   │   └── set.lua
-│   └── plugins
-│       ├── configs
-│       │   ├── lsp
-│       │   │   ├── cmp.lua
-│       │   │   ├── null_ls.lua
-│       │   │   └── zero.lua
-│       │   ├── themes
-│       │   │   ├── catppuccin.lua
-│       │   │   ├── colors.lua
-│       │   │   ├── github.lua
-│       │   │   ├── monokai-pro.lua
-│       │   │   └── onedark.lua
-│       │   ├── tools
-│       │   │   ├── autotag.lua
-│       │   │   ├── comment.lua
-│       │   │   ├── fugitive.lua
-│       │   │   ├── harpoon.lua
-│       │   │   ├── telescope.lua
-│       │   │   ├── tree.lua
-│       │   │   ├── treesitter.lua
-│       │   │   ├── trouble.lua
-│       │   │   └── undotree.lua
-│       │   └── ui
-│       │       ├── colorPicker.lua
-│       │       ├── lualine.lua
-│       │       ├── todo.lua
-│       │       ├── which-key.lua
-│       │       └── zen.lua
-│       ├── init.lua
-│       ├── lsp.lua
-│       ├── themes.lua
-│       ├── tools.lua
-│       └── ui.lua
-├── README.md
-├── TODO.md
-└── utils
-    └── formatting
-```
+1. Install Neovim >= 0.11
+2. Install [fnm](https://github.com/Schniz/fnm) and [ripgrep](https://github.com/BurntSushi/ripgrep)
+3. Move this file to ~/.config/nvim (rename nvim-config to nvim)
+4. Prepare your editor to explode and fix small bugs before using it
