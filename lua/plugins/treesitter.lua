@@ -4,8 +4,8 @@ return {
 	build = ":TSUpdate",
 	branch = "main",
 	config = function()
-		local ts = require("nvim-treesitter")
-		local ts_cfg = require("nvim-treesitter.config")
+		local treesitter = require("nvim-treesitter")
+		local treesitter_cfg = require("nvim-treesitter.config")
 		local parsers = require("nvim-treesitter.parsers")
 
 		local ensure_installed = {
@@ -17,7 +17,7 @@ return {
 			"dockerfile",
 			"git_config",
 			"git_rebase",
-			"gitcommit",
+			-- "gitcommit",
 			"gitignore",
 			"html",
 			"javascript",
@@ -35,7 +35,7 @@ return {
 			"yaml",
 			"zsh",
 		}
-		local installed = ts_cfg.get_installed()
+		local installed = treesitter_cfg.get_installed()
 		local to_install = vim.iter(ensure_installed)
 			:filter(function(parser)
 				return not vim.tbl_contains(installed, parser)
@@ -43,7 +43,7 @@ return {
 			:totable()
 
 		if #to_install > 0 then
-			ts.install(to_install)
+			treesitter.install(to_install)
 		end
 
 		local ignore_filetype = {
