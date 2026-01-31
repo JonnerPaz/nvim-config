@@ -4,10 +4,10 @@ return {
 	event = "LspAttach",
 	version = "1.*",
 	dependencies = {
-		"hrsh7th/nvim-cmp",
 		-- { "L3MON4D3/LuaSnip", version = "v2.*" },
 		"rafamadriz/friendly-snippets",
 		"Exafunction/codeium.nvim",
+
 		"onsails/lspkind.nvim",
 		"nvim-tree/nvim-web-devicons",
 	},
@@ -43,6 +43,7 @@ return {
 
 		-- (Default) Only show the documentation popup when manually triggered
 		completion = {
+			list = { selection = { preselect = true, auto_insert = false } },
 			documentation = { auto_show = true, auto_show_delay_ms = 500 },
 			keyword = { range = "full" },
 			trigger = {
@@ -64,12 +65,10 @@ return {
 										icon = dev_icon
 									end
 								else
-									icon = require("lspkind").symbolic(ctx.kind, {
-										mode = "symbol",
-									})
+									icon = require("lspkind").symbol_map[ctx.kind] or ""
 								end
 
-								return ctx.icon_gap .. icon
+								return icon .. ctx.icon_gap
 							end,
 
 							-- Optionally, use the highlight groups from nvim-web-devicons
@@ -92,6 +91,7 @@ return {
 		},
 
 		sources = {
+			-- "codeium"
 			default = { "lazydev", "lsp", "path", "snippets", "buffer", "codeium" },
 
 			per_filetype = {

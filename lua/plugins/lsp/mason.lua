@@ -13,6 +13,7 @@ return {
 			-- "ts_ls",
 			"basedpyright",
 			"lua_ls",
+			"prismals",
 			"postgres_lsp",
 			"yamlls",
 			"clangd",
