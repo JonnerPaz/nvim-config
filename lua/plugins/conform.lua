@@ -17,6 +17,23 @@ return {
 				cpp = { "clang-format" },
 				sql = { "pg_format" },
 			},
+			formatters = {
+
+				["clang-format"] = {
+					prepend_args = {
+						"-style={ \
+          BasedOnStyle: llvm, \
+          IndentWidth: 4, \
+          ColumnLimit: 100, \
+          AllowShortFunctionsOnASingleLine: None, \
+          PointerAlignment: Left, \
+          FixNamespaceComments: true, \
+          SortIncludes: true, \
+          BreakBeforeBraces: Attach \
+        }",
+					},
+				},
+			},
 			format_on_save = function(bufnr)
 				-- Disable autoformat for files in a certain path
 				local bufname = vim.api.nvim_buf_get_name(bufnr)
