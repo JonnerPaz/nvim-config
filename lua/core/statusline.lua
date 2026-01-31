@@ -32,13 +32,10 @@ local statusline = {
 	git_component(),
 	"%*", -- Reset to default highlight
 	" %{get(b:,'gitsigns_status','')}",
-	" %3{v:lua.require('codeium.virtual_text').status_string()}",
-	-- " %{mode()}",
 	" %r", -- Readonly flag
 	"%*", -- Reset to default highlight
 	" %m ", -- Modified flag
 	"%=", -- divider
-
 	" %f ",
 	"%=", -- divider
 
