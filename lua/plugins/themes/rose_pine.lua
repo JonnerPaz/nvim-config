@@ -81,13 +81,6 @@ return {
 				CurSearch = { fg = "base", bg = "leaf", inherit = false },
 				Search = { fg = "text", bg = "leaf", blend = 20, inherit = false },
 
-				-- telescope look options
-				TelescopeBorder = { fg = "none", bg = "base" },
-				TelescopeNormal = { bg = "base" },
-				TelescopePromptNormal = { fg = "none", bg = "base" },
-				TelescopeResultsNormal = { fg = "none", bg = "base" },
-				TelescopeSelection = { fg = "text", bg = "base" },
-				TelescopeSelectionCaret = { fg = "rose", bg = "base" },
 				-- Comment = { fg = "foam" },
 				-- VertSplit = { fg = "muted", bg = "muted" },
 			},

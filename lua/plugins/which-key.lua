@@ -183,7 +183,6 @@ return {
 		local maps = {
 			{ "<leader>f", group = "Search | Telescope" },
 			{ "<leader>u", group = "GIT" },
-			{ "<leader>z", group = "Zen" },
 			{ "<leader>a", group = "Harpoon" },
 		}
 

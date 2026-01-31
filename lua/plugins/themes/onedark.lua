@@ -5,7 +5,7 @@ return {
 	config = function()
 		require("onedark").setup({
 			style = "warmer",
-			transparent = true,
+			transparent = false,
 			highlights = {
 				BlinkCmpMenuSelection = { fg = "#121212", bg = "#999999" },
 			},
