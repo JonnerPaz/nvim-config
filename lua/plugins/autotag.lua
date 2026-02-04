@@ -1,35 +1,27 @@
 return {
 	"windwp/nvim-ts-autotag",
+	dependencies = {
+		"nvim-treesitter",
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		{ "windwp/nvim-autopairs", event = "InsertEnter", config = true },
+		{
+			"mawkler/jsx-element.nvim",
+			ft = { "typescriptreact", "javascriptreact", "typescript", "javascript" },
+		},
+	},
 	event = "LspAttach",
 	config = function()
-		-- import nvim-autopairs safely
-		local autopairs_setup, autopairs = pcall(require, "nvim-autopairs")
-		if not autopairs_setup then
-			return
-		end
-
-		-- configure autopairs
-		autopairs.setup({
-			check_ts = true, -- enable treesitter
-			ts_config = {
-				lua = { "string" }, -- don't add pairs in lua string treesitter nodes
-				javascript = {}, -- don't add pairs in javscript template_string treesitter nodes
-			},
+		require("nvim-autopairs").setup({
+			map_cr = true,
 		})
 
-		-- import nvim-autopairs completion functionality safely
-		local cmp_autopairs_setup, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
-		if not cmp_autopairs_setup then
-			return
-		end
-
-		-- import nvim-cmp plugin safely (completions plugin)
-		local cmp_setup, cmp = pcall(require, "cmp")
-		if not cmp_setup then
-			return
-		end
-
-		-- Add autopairs completion when confirm it
-		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+		require("nvim-ts-autotag").setup({
+			opts = {
+				-- Defaults
+				enable_close = true, -- Auto close tags
+				enable_rename = true, -- Auto rename pairs of tags
+				enable_close_on_slash = false, -- Auto close on trailing </
+			},
+		})
 	end,
 }

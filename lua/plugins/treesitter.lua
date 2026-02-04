@@ -4,50 +4,36 @@ return {
 	lazy = false,
 	build = ":TSUpdate",
 	branch = "main",
-	config = function()
-		local treesitter = require("nvim-treesitter")
-		local treesiter_ctx = require("treesitter-context")
-		local treesitter_cfg = require("nvim-treesitter.config")
-		local parsers = require("nvim-treesitter.parsers")
-
-		local ensure_installed = {
+	opts = {
+		indent = { enable = true },
+		highlight = { enable = true },
+		folds = { enable = true },
+		ensure_installed = {
 			"bash",
 			"c",
-			"comment",
+			"cpp",
 			"css",
 			"diff",
 			"dockerfile",
-			"git_config",
-			"git_rebase",
-			-- "gitcommit",
 			"gitignore",
 			"html",
 			"javascript",
-			"jsdoc",
 			"json",
 			"lua",
 			"luadoc",
 			"markdown",
+			"markdown_inline",
 			"python",
 			"sql",
 			"typescript",
+			"tsx",
 			"vim",
 			"vimdoc",
-			"xml",
 			"yaml",
-			"zsh",
-		}
-		local installed = treesitter_cfg.get_installed()
-		local to_install = vim.iter(ensure_installed)
-			:filter(function(parser)
-				return not vim.tbl_contains(installed, parser)
-			end)
-			:totable()
-
-		if #to_install > 0 then
-			treesitter.install(to_install)
-		end
-
+		},
+	},
+	config = function()
+		local treesiter_ctx = require("treesitter-context")
 		local ignore_filetype = {
 			"checkhealth",
 			"lazy",
