@@ -33,7 +33,7 @@ set.backupcopy = "yes"
 -- Search text options
 set.hlsearch = false
 set.incsearch = true
-set.inccommand = "split"
+set.inccommand = "nosplit"
 set.smartcase = true -- case matters if using capital at start
 set.ignorecase = true
 
