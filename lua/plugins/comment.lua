@@ -1,5 +1,6 @@
 return {
 	"numToStr/Comment.nvim",
+	dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
 	config = function()
 		require("Comment").setup({
 			---Add a space b/w comment and the line

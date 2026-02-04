@@ -35,10 +35,10 @@ return {
 
 		-- Travel to next and previous buffers
 		vim.keymap.set("n", "<C-j>", function()
-			harpoon:list():next()
+			harpoon:list():next({ ui_nav_wrap = true })
 		end)
 		vim.keymap.set("n", "<C-k>", function()
-			harpoon:list():prev()
+			harpoon:list():prev({ ui_nav_wrap = true })
 		end)
 	end,
 }
