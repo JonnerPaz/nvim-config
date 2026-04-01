@@ -21,16 +21,8 @@ return {
 
 				["clang-format"] = {
 					prepend_args = {
-						"-style={ \
-          BasedOnStyle: llvm, \
-          IndentWidth: 4, \
-          ColumnLimit: 100, \
-          AllowShortFunctionsOnASingleLine: None, \
-          PointerAlignment: Left, \
-          FixNamespaceComments: true, \
-          SortIncludes: true, \
-          BreakBeforeBraces: Attach \
-        }",
+						"--style=file",
+						"--fallback-style=Google",
 					},
 				},
 			},
