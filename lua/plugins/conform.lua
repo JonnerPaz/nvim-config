@@ -15,7 +15,8 @@ return {
 				json = { "prettierd" },
 				python = { lsp_format = "prefer", "black", stop_after_first = true },
 				cpp = { "clang-format" },
-				sql = { "pg_format" },
+				c = { "clang-format" },
+				sql = { "sql_formatter" },
 			},
 			formatters = {
 
