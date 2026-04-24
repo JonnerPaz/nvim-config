@@ -16,7 +16,8 @@ return {
 			"prismals",
 			"postgres_lsp",
 			"yamlls",
-			"clangd",
+			-- "clangd",
+			"rust_analyzer",
 			"ruff",
 		}
 

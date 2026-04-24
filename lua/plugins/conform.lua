@@ -17,6 +17,7 @@ return {
 				cpp = { "clang-format" },
 				c = { "clang-format" },
 				sql = { "sql_formatter" },
+				rust = { "rustfmt" },
 			},
 			formatters = {
 
