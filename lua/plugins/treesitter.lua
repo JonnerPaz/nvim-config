@@ -1,5 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	dependencies = { "nvim-treesitter/nvim-treesitter-context" },
 	lazy = false,
 	build = ":TSUpdate",
 	branch = "main",
@@ -23,6 +24,7 @@ return {
 			"markdown",
 			"markdown_inline",
 			"python",
+			"rust",
 			"sql",
 			"typescript",
 			"tsx",
@@ -32,6 +34,7 @@ return {
 		},
 	},
 	config = function()
+		local treesiter_ctx = require("treesitter-context")
 		local ignore_filetype = {
 			"checkhealth",
 			"lazy",
@@ -64,6 +67,16 @@ return {
 				vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 				vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 			end,
+		})
+
+		treesiter_ctx.setup({
+			enable = true,
+			max_lines = 1,
+			line_numbers = true,
+			trim_scope = "outer",
+			min_window_height = 0,
+			mode = "cursor",
+			separator = nil,
 		})
 	end,
 }
