@@ -10,7 +10,7 @@ return {
 			"tailwindcss",
 			"emmet_ls",
 			"jsonls",
-			-- "ts_ls",
+			"vtsls",
 			"basedpyright",
 			"lua_ls",
 			"prismals",

@@ -27,7 +27,7 @@ local key_mappings = {
 	{ "<leader>f", "<cmd>FzfLua files<cr>", "check files baby" },
 	{ "<leader>g", "<cmd>FzfLua live_grep<cr>", "Live grep" },
 	{ "<leader>db", "<cmd>FzfLua buffers<cr>", "Find by Buffers" },
-	{ "<leader>dc", "<cmd>FzfLua commands<cr>", "Find Commands" },
+	{ "<leader>dc", "<cmd>FzfLua git_status<cr>", "Find changes" },
 	{ "<leader>dl", "<cmd>FzfLua lsp_definitions<cr>", "Find definitions" },
 	{ "<leader>dh", "<cmd>FzfLua helptags<cr>", "Find help tags" },
 	{ "<leader>de", "<cmd>FzfLua autocmds<cr>", "Find Autocommands/Events" },
