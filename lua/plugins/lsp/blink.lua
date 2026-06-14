@@ -16,7 +16,6 @@ return {
 				end,
 			},
 		},
-		"Exafunction/codeium.nvim",
 		"onsails/lspkind.nvim",
 		"nvim-tree/nvim-web-devicons",
 	},
@@ -89,8 +88,7 @@ return {
 		},
 
 		sources = {
-			-- "codeium"
-			default = { "lazydev", "lsp", "path", "snippets", "buffer", "codeium" },
+			default = { "lazydev", "lsp", "path", "snippets", "buffer", },
 
 			per_filetype = {
 				sql = { "dadbod" },
@@ -98,7 +96,6 @@ return {
 			providers = {
 				dadbod = { module = "vim_dadbod_completion.blink" },
 				lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", score_offset = 100 },
-				codeium = { name = "Codeium", module = "codeium.blink", async = true },
 			},
 		},
 
