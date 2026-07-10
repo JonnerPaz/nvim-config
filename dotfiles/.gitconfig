@@ -1,0 +1,23 @@
+[user]
+	email = jonnerpazp@gmail.com
+	name = JonnerPaz
+[core]
+	editor = nvim
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+    side-by-side = true
+	navigate = true
+    word-diff-highlight = true
+    #syntax-theme = Github
+
+    # Config for line numbers
+    line-numbers-left-format = "{nm:>4} "
+    line-numbers-right-format = "{np:>4} "
+    line-numbers-minus-style = red italic
+    line-numbers-plus-style = green italic
+[merge]
+	conflictStyle = zdiff3
+[init]
+    defaultBranch = main

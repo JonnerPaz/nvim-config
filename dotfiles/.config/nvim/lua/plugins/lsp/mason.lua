@@ -19,6 +19,7 @@ return {
 			"clangd",
 			"rust_analyzer",
 			"ruff",
+			"bashls",
 		}
 
 		local tools = {
