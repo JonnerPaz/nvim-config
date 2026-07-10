@@ -14,7 +14,6 @@ def install_system_packages(pm):
         "tar",
         "gzip",
         "zsh",
-        "fzf",
         "chafa",
     ]
 

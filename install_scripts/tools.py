@@ -113,7 +113,7 @@ def install_all_tools():
 
     if detect_distro().get("pm") == "dnf":
         subprocess.run(
-            "sudo dnf install -y ripgrep fd bat delta lazygit fzf",
+            "sudo dnf install -y ripgrep fd bat delta",
             shell=True,
             check=True,
         )
