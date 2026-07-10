@@ -10,7 +10,6 @@ return {
 			"tailwindcss",
 			"emmet_ls",
 			"jsonls",
-			"vtsls",
 			"basedpyright",
 			"lua_ls",
 			"prismals",
@@ -19,6 +18,7 @@ return {
 			"clangd",
 			"rust_analyzer",
 			"ruff",
+			"tsgo",
 		}
 
 		local tools = {
