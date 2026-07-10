@@ -31,7 +31,7 @@ def header(text):
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-DOTFILES_DIR = SCRIPT_DIR / "dotfiles"
+DOTFILES_DIR = SCRIPT_DIR.parent / "dotfiles"
 BIN_DIR = Path.home() / ".local" / "bin"
 
 

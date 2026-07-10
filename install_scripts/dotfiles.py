@@ -5,27 +5,27 @@ from pathlib import Path
 from common import info, success, warn, header, DOTFILES_DIR
 
 
-def _backup_and_symlink_file(src, dest):
+def _backup_and_copy_file(src, dest):
     if dest.exists() and not dest.is_symlink():
         backup = dest.with_name(f"{dest.name}.bak.{int(time.time())}")
         shutil.copy2(dest, backup)
         warn(f"Backup de {dest.name} creado")
-    if dest.is_symlink() or dest.exists():
+    if dest.is_symlink():
         dest.unlink()
-    dest.symlink_to(src)
+    shutil.copy2(src, dest)
 
 
-def _backup_and_symlink_dir(src, dest):
+def _backup_and_copy_dir(src, dest):
     if dest.is_dir() and not dest.is_symlink():
         backup = dest.with_name(f"{dest.name}.bak.{int(time.time())}")
         shutil.copytree(dest, backup)
         warn(f"Backup de {dest.name} config creado")
-    if dest.is_symlink() or dest.exists():
+    elif dest.is_symlink() or dest.exists():
         if dest.is_dir():
             shutil.rmtree(dest)
         else:
             dest.unlink()
-    dest.symlink_to(src, target_is_directory=True)
+    shutil.copytree(src, dest)
 
 
 def install_dotfiles():
@@ -41,14 +41,7 @@ def install_dotfiles():
     for f in [".zshrc", ".zshenv", ".bashrc", ".gitconfig"]:
         src = DOTFILES_DIR / f
         dest = home / f
-        _backup_and_symlink_file(src, dest)
-
-    # .local/bin/env
-    local_bin = home / ".local" / "bin"
-    local_bin.mkdir(parents=True, exist_ok=True)
-    env_src = DOTFILES_DIR / ".local" / "bin" / "env"
-    env_dest = local_bin / "env"
-    _backup_and_symlink_file(env_src, env_dest)
+        _backup_and_copy_file(src, dest)
 
     # .config directories
     config_dir = home / ".config"
@@ -58,6 +51,6 @@ def install_dotfiles():
         src = DOTFILES_DIR / ".config" / subdir
         dest = config_dir / subdir
         if src.exists():
-            _backup_and_symlink_dir(src, dest)
+            _backup_and_copy_dir(src, dest)
 
-    success("Dotfiles instalados como symlinks")
+    success("Dotfiles instalados")
