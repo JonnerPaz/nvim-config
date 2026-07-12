@@ -23,9 +23,7 @@ return {
 			"javascript",
 			"json",
 			"lua",
-			"luadoc",
 			"markdown",
-			"markdown_inline",
 			"python",
 			"rust",
 			"sql",
@@ -34,6 +32,7 @@ return {
 			"vim",
 			"vimdoc",
 			"yaml",
+			"astro",
 		},
 	},
 	config = function(_, opts)
@@ -82,13 +81,11 @@ return {
 			"checkhealth",
 			"lazy",
 			"mason",
-			"TelescopePrompt",
 			"alpha",
 			"dashboard",
 			"spectre_panel",
 			"undotree",
 			"Outline",
-			"sagaoutline",
 		}
 
 		local group = vim.api.nvim_create_augroup("TreesitterSetup", { clear = true })

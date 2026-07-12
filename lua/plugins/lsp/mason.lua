@@ -7,7 +7,6 @@ return {
 		local servers = {
 			"html",
 			"cssls",
-			"tailwindcss",
 			"emmet_ls",
 			"jsonls",
 			"basedpyright",
@@ -19,13 +18,7 @@ return {
 			"rust_analyzer",
 			"ruff",
 			"tsgo",
-		}
-
-		local tools = {
-			"cpptools",
-			"debugpy",
-			-- eslint_d = "eslint_d",
-			"black",
+			"astro",
 		}
 
 		vim.lsp.enable(servers)

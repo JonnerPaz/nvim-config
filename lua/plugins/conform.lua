@@ -18,6 +18,7 @@ return {
 				c = { "clang-format" },
 				sql = { "sql_formatter" },
 				rust = { "rustfmt" },
+				astro = { "prettierd" },
 			},
 			formatters = {
 
