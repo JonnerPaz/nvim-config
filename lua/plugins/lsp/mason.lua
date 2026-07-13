@@ -19,6 +19,7 @@ return {
 			"ruff",
 			"tsgo",
 			"astro",
+			"marksman",
 		}
 
 		vim.lsp.enable(servers)

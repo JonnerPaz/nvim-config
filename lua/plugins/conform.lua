@@ -19,6 +19,7 @@ return {
 				sql = { "sql_formatter" },
 				rust = { "rustfmt" },
 				astro = { "prettierd" },
+				markdown = { "prettierd" },
 			},
 			formatters = {
 
