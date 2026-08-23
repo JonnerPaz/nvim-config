@@ -17,7 +17,7 @@ return {
 			"clangd",
 			"rust_analyzer",
 			"ruff",
-			"tsgo",
+			"tsc",
 			"astro",
 			"marksman",
 		}
