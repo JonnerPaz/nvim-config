@@ -8,9 +8,9 @@ return {
 				lua = { "stylua" },
 				javascript = { "prettierd" },
 				typescript = { "prettierd" },
-				javascriptreact = { "prettierd" },
-				typescriptreact = { "prettierd" },
-				html = { "prettierd" },
+				javascriptreact = { "rustywind", "prettierd" },
+				typescriptreact = { "rustywind", "prettierd" },
+				html = { "rustywind", "prettierd" },
 				css = { "prettierd" },
 				json = { "prettierd" },
 				python = { lsp_format = "prefer", "black", stop_after_first = true },
@@ -18,10 +18,15 @@ return {
 				c = { "clang-format" },
 				sql = { "sql_formatter" },
 				rust = { "rustfmt" },
-				astro = { "prettierd" },
+				astro = { "rustywind", "prettierd" },
 				markdown = { "prettierd" },
 			},
 			formatters = {
+				["rustywind"] = {
+					command = "rustywind",
+					args = { "--stdin" },
+					stdin = true,
+				},
 
 				["clang-format"] = {
 					prepend_args = {

@@ -1,6 +1,6 @@
 return {
 	"williamboman/mason.nvim",
-	dependencies = { "williamboman/mason-lspconfig.nvim", "mason-org/mason-lspconfig.nvim" },
+	dependencies = { "mason-org/mason-lspconfig.nvim" },
 	config = function()
 		require("mason").setup()
 
@@ -20,12 +20,21 @@ return {
 			"tsc",
 			"astro",
 			"marksman",
+			"tailwindcss",
+		}
+
+		-- Additional tools (formatters/linters) not managed via vim.lsp.enable
+		local tools = {
+			"rustywind",
+			"stylua",
+			"prettierd",
+			"eslint_d",
 		}
 
 		vim.lsp.enable(servers)
 
 		require("mason-tool-installer").setup({
-			ensure_installed = servers,
+			ensure_installed = vim.list_extend(vim.deepcopy(servers), tools),
 		})
 	end,
 }
