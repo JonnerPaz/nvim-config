@@ -37,19 +37,26 @@ My own Neovim configuration file written 100% in lua. Sometimes it makes me quit
 - **SQL** — `postgres_lsp`, `sql_formatter` (`mason.lua:15`, `conform.lua:19`)
 - **JSON/YAML/Markdown** — `jsonls`, `yamlls`, `marksman` (`mason.lua:11`, `mason.lua:22`)
 
-### Tailwind CSS
+### Tailwind CSS (Modern Native — No `tailwind-tools.nvim`)
 
 - Node.js >= 18 and a Tailwind project:
-  - **v4:** `@import "tailwindcss"` in your CSS (no `tailwind.config.js` required, e.g. `app.css`)
+  - **v4 (latest, recommended):** `@import "tailwindcss"` in your CSS (no `tailwind.config.js` required, e.g. `app.css`)
   - **v3:** `tailwind.config.{js,cjs,mjs,ts}` at project root
-- `tailwindcss-language-server` — auto-installed via `mason-tool-installer` as `tailwindcss` (`lua/plugins/lsp/mason.lua:23`, `lsp/tailwindcss.lua`)
-- `rustywind` — Tailwind class sorter for sorting on save (Option A: `conform.nvim` + `rustywind`):
+- `tailwindcss-language-server` — native `vim.lsp.config` via `lsp/tailwindcss.lua` + `vim.lsp.enable("tailwindcss")` (`lua/plugins/lsp/mason.lua:23`); auto-installed via `mason-tool-installer` as `tailwindcss`. No `require('lspconfig')` framework (deprecated in nvim-lspconfig v3; see `:help lspconfig-nvim-0.11`). Filetypes: `html, css, javascript, typescript, javascriptreact, typescriptreact, astro` (React + Astro only, no vue/svelte). Includes `experimental.classRegex` for `cva`/`clsx`/`twMerge`.
+- `catgoose/nvim-colorizer.lua` — modern color preview (replaces `tailwind-tools` `document_color`):
+  ```lua
+  -- lua/plugins/colorizer.lua
+  parsers.tailwind = { enable = true, lsp = { enable = true, disable_document_color = true }, update_names = true }
+  display = { mode = "virtualtext", virtualtext = { char = "󰝤 ", position = "inline", hl_mode = "foreground" } }
+  ```
+  Dual-source: bundled Tailwind palette (instant `bg-red-500`) + LSP `textDocument/documentColor` (custom `tailwind.config.js` colors). `disable_document_color=true` avoids duplicate with built-in `vim.lsp.document_color` (Neovim 0.12+). See `lua/plugins/colorizer.lua`.
+- `rustywind` — Tailwind class sorter for sorting on save (clean via `conform.nvim` + `rustywind`):
   ```bash
   cargo install rustywind       # or via mason: :MasonInstall rustywind
   # mason-tool-installer ensures: tailwindcss, rustywind, stylua, prettierd, eslint_d
   ```
   Sorting chain: `rustywind` → `prettierd` for `javascript, typescript, javascriptreact, typescriptreact, html, astro` (`lua/plugins/conform.lua:9-14`). Supports Tailwind v4 since `rustywind` 0.23.
-- `tailwind-tools.nvim` (`lua/plugins/lsp/tailwind.lua`) — color preview inline (`󰝤 `), conceal, Telescope — filetypes: `html, css, javascript, typescript, javascriptreact, typescriptreact, astro` (React + Astro only, no vue/svelte)
+- **Dropped `tailwind-tools.nvim` features** (intentionally, for clean modern stack without deprecated `lspconfig.tailwindcss.setup` at `lsp.lua:147`): `conceal` (`󱏿`), motions, smart_increment `<C-a>`, Telescope extension — not supported natively; acceptable per modernization goal.
 
 ### Optional but Recommended
 
@@ -80,6 +87,6 @@ My own Neovim configuration file written 100% in lua. Sometimes it makes me quit
    # inside nvim:
    :Lazy sync
    :Mason          # verify: html, cssls, tailwindcss, rustywind, etc. are installed
-   :checkhealth    # should show OK for tailwind-tools, tailwindcss, rustywind
+   :checkhealth    # should show OK for tailwindcss, rustywind, colorizer (no tailwind-tools)
    ```
 7. Prepare your editor to explode and fix small bugs before using it
