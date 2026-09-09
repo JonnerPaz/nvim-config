@@ -15,6 +15,7 @@ return {
 			"postgres_lsp",
 			"yamlls",
 			"clangd",
+			"gopls",
 			"rust_analyzer",
 			"ruff",
 			"tsc",

@@ -19,6 +19,7 @@ return {
 			"diff",
 			"dockerfile",
 			"gitignore",
+			"go",
 			"html",
 			"javascript",
 			"json",

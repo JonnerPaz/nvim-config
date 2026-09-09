@@ -1,0 +1,43 @@
+return {
+	root_dir = function(fname)
+		return vim.fs.root(fname, { "go.mod", "go.work", ".git" })
+	end,
+	settings = {
+		gopls = {
+			gofumpt = true,
+			completeUnimported = true,
+			staticcheck = true,
+			analyses = {
+				assign = true,
+				assigns = true,
+				boolField = true,
+				buildtag = true,
+				cgocall = true,
+				composite = true,
+				copylocks = true,
+				httpresponse = true,
+				ifaceassert = true,
+				lostcancel = true,
+				loopsreal = true,
+				lostcancel = true,
+				nilfunc = true,
+				noonce = true,
+				printf = true,
+				shadow = true,
+				simplifycompositelit = true,
+				simplifyrange = true,
+				simplifyslice = true,
+				sortslice = true,
+				stdmethods = true,
+				stringintconv = true,
+				structtag = true,
+				testinggoroutine = true,
+				unmarshal = true,
+				unreachable = true,
+				unsafeptr = true,
+				useany = true,
+				WriteString = true,
+			},
+		},
+	},
+}

@@ -13,6 +13,7 @@ return {
 				html = { "rustywind", "prettierd" },
 				css = { "prettierd" },
 				json = { "prettierd" },
+				jsonc = { "prettierd" },
 				python = { lsp_format = "prefer", "black", stop_after_first = true },
 				cpp = { "clang-format" },
 				c = { "clang-format" },
@@ -20,6 +21,7 @@ return {
 				rust = { "rustfmt" },
 				astro = { "rustywind", "prettierd" },
 				markdown = { "prettierd" },
+				go = { "gofmt" },
 			},
 			formatters = {
 				["rustywind"] = {
